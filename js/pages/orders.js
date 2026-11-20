@@ -179,9 +179,7 @@
                 `;
         } else if (isCompleted) {
           statusBadge = `<span class="order-status-badge completed-badge"><span class="badge-dot"></span>Delivered</span>`;
-          actionButtons = `
-                    <button class="btn btn-xs btn-outline" data-view-bill="${order.id}">View Bill</button>
-                `;
+          actionButtons = "";
         } else if (isRejected) {
           statusBadge = `<span class="order-status-badge rejected-badge"><span class="badge-dot"></span>Declined</span>`;
           actionButtons = `<span class="text-muted-sm">${order.rejectReason || "Declined"}</span>`;
@@ -221,12 +219,34 @@
                             <span class="address-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                             <span class="address-text">${order.address}</span>
                         </div>
-                        ${order.rider && (isPrep || isReady) ? `
+                        ${
+                          order.rider && (isPrep || isReady)
+                            ? `
                         <div class="order-rider-preview">
-                            <span class="rider-initials-chip dp-profile-${(order.rider.initials || (order.rider.name ? order.rider.name.split(' ').map(n=>n[0]).join('').slice(0,2) : 'RS')).toLowerCase()}">${order.rider.initials || (order.rider.name ? order.rider.name.split(' ').map(n=>n[0]).join('').slice(0,2) : 'RS')}</span>
-                            <span class="rider-preview-text">Delivery Partner: <strong>${order.rider.name}</strong> <span class="rider-preview-eta">(${order.rider.eta || 'Assigned'} · ${order.rider.phone || ''})</span></span>
+                            <span class="rider-initials-chip dp-profile-${(
+                              order.rider.initials ||
+                              (order.rider.name
+                                ? order.rider.name
+                                    .split(" ")
+                                    .map((n) => n[0])
+                                    .join("")
+                                    .slice(0, 2)
+                                : "RS")
+                            ).toLowerCase()}">${
+                              order.rider.initials ||
+                              (order.rider.name
+                                ? order.rider.name
+                                    .split(" ")
+                                    .map((n) => n[0])
+                                    .join("")
+                                    .slice(0, 2)
+                                : "RS")
+                            }</span>
+                            <span class="rider-preview-text">Delivery Partner: <strong>${order.rider.name}</strong> <span class="rider-preview-eta">(${order.rider.eta || "Assigned"} · ${order.rider.phone || ""})</span></span>
                         </div>
-                        ` : ''}
+                        `
+                            : ""
+                        }
                     </div>
 
                     <div class="order-manage-footer">
