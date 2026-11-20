@@ -1,0 +1,579 @@
+/* ==========================================================================
+   YUDU Restaurant Partner Portal - Responsive Stylesheet
+   Desktop, Laptop, Tablet and Mobile Adaptations
+   ========================================================================== */
+
+/* Mobile Top Navbar (hidden on desktop) */
+.mobile-top-bar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 99;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburger-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background: #FAF5FF;
+    border: 1px solid var(--border-color);
+    color: var(--primary-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mobile-logo-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(40, 22, 79, 0.45);
+    z-index: 99;
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
+/* 1. Large Laptops & Desktops (< 1200px) */
+@media (max-width: 1200px) {
+    .main-viewport {
+        padding: 20px 24px 60px;
+    }
+
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-split-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-bottom-grid, .overview-layout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-middle-row {
+        grid-template-columns: 1fr;
+    }
+
+    .orders-metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 2. Tablets (< 992px) */
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 0px;
+    }
+
+    .mobile-top-bar {
+        display: flex;
+    }
+
+    .main-viewport, .main-viewport.sidebar-collapsed {
+        margin-left: 0 !important;
+        padding-top: 76px;
+        width: 100% !important;
+    }
+
+    .sidebar, .sidebar.collapsed {
+        transform: translateX(-100%);
+        width: 260px !important;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+        padding: 24px 16px !important;
+    }
+
+    .sidebar-rail-toggle-btn, .sidebar.collapsed .sidebar-rail-toggle-btn {
+        display: none !important;
+    }
+
+    .sidebar.collapsed .brand-logo-text-wrap {
+        display: flex !important;
+    }
+
+    .sidebar.collapsed .brand-logo-compact {
+        display: none !important;
+    }
+
+    .sidebar.collapsed .sidebar-role-label {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        height: auto !important;
+        margin-top: 24px !important;
+        margin-bottom: 12px !important;
+        display: block !important;
+    }
+
+    .sidebar.collapsed .sidebar-nav-link {
+        justify-content: flex-start !important;
+        padding: 10px 14px !important;
+    }
+
+    .sidebar.collapsed .sidebar-nav-link .nav-label {
+        display: inline !important;
+    }
+
+    .sidebar.collapsed .sidebar-profile-box {
+        justify-content: flex-start !important;
+        padding: 10px 12px !important;
+    }
+
+    .sidebar.collapsed .sidebar-profile-info {
+        display: block !important;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .stats-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .settlements-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-two-col-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-dish-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-status-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .restaurant-gradient-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+}
+
+/* 3. Small Tablets & Phones (< 768px) */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-input-wrap {
+        flex: 1;
+        width: auto;
+    }
+
+    .stats-grid-4, .stats-grid-3 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .orders-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .live-order-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .order-middle-actions, .order-right-price-status {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .prep-progress-wrap {
+        max-width: 100%;
+    }
+
+    .form-row-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-upload-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .days-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .payout-banner-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .status-banner-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .status-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .app-status-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .app-status-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .app-status-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-status-progress-track {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .app-status-progress-track .progress-line {
+        display: none;
+    }
+
+    .notif-popover {
+        right: 12px !important;
+        left: 12px !important;
+        width: auto;
+    }
+}
+
+/* 4. Small Phones (< 480px) */
+@media (max-width: 480px) {
+    .stats-grid-4, .stats-grid-3, .overview-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .orders-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .order-header-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-manage-footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .order-action-btns-wrap {
+        justify-content: flex-end;
+    }
+}
+
+
+/* ==========================================================================
+   YUDU Restaurant Partner Portal - Auth & Registration Responsive Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   YUDU Restaurant Partner Portal - Responsive Stylesheets
+   ========================================================================== */
+
+/* Large Tablets & Small Desktops (<= 1200px) */
+@media (max-width: 1200px) {
+  .reg-fixed-sidebar {
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+    padding: 32px 28px;
+  }
+  .registration-content {
+    margin-left: 400px;
+    width: calc(100% - 400px);
+    padding: 32px 24px 60px 24px;
+  }
+  .sidebar-hero-title {
+    font-size: 1.85rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .reg-fixed-sidebar {
+    display: none !important;
+  }
+
+  .registration-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 16px 40px 16px !important;
+  }
+
+  .login-viewport {
+    flex-direction: column;
+  }
+
+  .login-hero {
+    flex: none;
+    padding: 48px 36px 40px 36px;
+  }
+
+  .hero-content {
+    margin: 28px 0;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .reg-card {
+    padding: 36px 32px;
+  }
+
+  .docs-layout-grid {
+    gap: 20px;
+  }
+}
+
+/* Medium Tablets & iPads (<= 768px) */
+@media (max-width: 768px) {
+  .top-navbar {
+    padding: 14px 20px;
+  }
+
+  .nav-brand.yudu-logo-text .brand-text,
+  .nav-brand .brand-text {
+    font-size: 1.6rem;
+  }
+
+  .nav-brand.yudu-logo-text .brand-tagline,
+  .nav-brand .brand-tagline {
+    font-size: 0.6rem;
+  }
+
+  .hero-brand .yudu-logo-text .brand-text {
+    font-size: 2rem;
+  }
+
+  .hero-brand .yudu-logo-text .brand-tagline {
+    font-size: 0.66rem;
+  }
+
+  .brand-logo-img {
+    height: 36px;
+  }
+
+  .login-hero {
+    padding: 36px 24px;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .stat-box {
+    padding: 12px 10px;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-caption {
+    font-size: 0.72rem;
+  }
+
+  .login-panel {
+    padding: 24px 16px 40px 16px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+    border-radius: var(--radius-lg);
+  }
+
+  .registration-content {
+    padding: 20px 14px 40px 14px;
+  }
+
+  .reg-card {
+    padding: 28px 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .reg-header-row {
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .circular-back-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .reg-title {
+    font-size: 1.45rem;
+  }
+
+  .reg-subtitle {
+    font-size: 0.88rem;
+  }
+
+  /* Form rows stack on mobile */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .step-progress-bar {
+    gap: 8px;
+    margin-bottom: 26px;
+  }
+
+  .step-indicator-text {
+    font-size: 0.75rem;
+  }
+
+  /* Step 2 Document Grid Stacks Vertically */
+  .docs-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .photos-gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .review-grid-2col,
+  .review-docs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .app-meta-card {
+    padding: 18px 20px;
+  }
+
+  .app-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* Small Mobile Screens (<= 480px) */
+@media (max-width: 480px) {
+  .hero-stats-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .stat-box {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+  }
+
+  .stat-value {
+    font-size: 1.15rem;
+  }
+
+  .step-indicator-text {
+    display: none; /* Show only progress bars on narrow mobile */
+  }
+
+  .step-progress-bar {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .otp-inputs-grid {
+    gap: 6px;
+  }
+
+  .otp-box {
+    width: 42px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
+
+  .reg-actions-row {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .reg-actions-row .btn {
+    width: 100%;
+  }
+
+  .success-actions-row {
+    flex-direction: column;
+  }
+
+  .success-actions-row .btn {
+    width: 100%;
+  }
+
+  .cuisines-grid {
+    gap: 8px;
+  }
+
+  .cuisine-pill {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+}

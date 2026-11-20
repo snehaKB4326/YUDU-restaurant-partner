@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Documents – Step 2 | YUDU Partner Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/registration.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="registration-viewport">
+    <!-- Top Navigation Bar -->
+    <header class="top-navbar">
+      <a
+        href="partner-login.html"
+        class="nav-brand yudu-logo-text"
+        title="YUDU Restaurant Partner"
+      >
+        <div class="yudu-logo-brand">
+          <span class="brand-text">YUDU</span>
+        </div>
+        <span class="brand-tagline">Good Food. Good Mood.</span>
+      </a>
+
+      <div class="nav-right-link">
+        <span>Need help?</span>
+        <a href="#" id="nav-support-link" class="highlight-link"
+          >Contact support</a
+        >
+      </div>
+    </header>
+
+    <!-- Split Layout: Fixed Left Hero Sidebar + Right Scrollable Form -->
+    <div class="reg-layout-split">
+      <!-- FIXED LEFT HERO SIDEBAR (Under navbar, does not scroll) -->
+      <aside class="reg-fixed-sidebar">
+        <div class="sidebar-hero-content">
+          <div class="sidebar-badge">
+            <svg
+              class="badge-icon-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+              />
+            </svg>
+            <span>PARTNER ONBOARDING</span>
+          </div>
+
+          <h2 class="sidebar-hero-title">Partner with YUDU<br />today.</h2>
+          <p class="sidebar-hero-desc">
+            Complete your 3–step registration and start reaching thousands of
+            hungry customers nearby.
+          </p>
+
+          <!-- 3 Features List Matching Reference Image -->
+          <div class="sidebar-features-list">
+            <!-- Feature 1: Fast 24-48h Approval -->
+            <div class="sidebar-feature-row">
+              <div class="feature-icon-bubble">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <div class="feature-text-block">
+                <h4 class="feature-heading">Fast 24–48h Approval</h4>
+                <p class="feature-subtext">
+                  Dedicated onboarding manager assists your setup.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3: Weekly Payouts -->
+            <div class="sidebar-feature-row">
+              <div class="feature-icon-bubble">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20v-6M6 20V10M18 20V4" />
+                </svg>
+              </div>
+              <div class="feature-text-block">
+                <h4 class="feature-heading">Weekly Payouts</h4>
+                <p class="feature-subtext">
+                  Automated direct bank deposits every single week.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Unified Glassmorphic Statistic Card -->
+        <div class="sidebar-bottom-area">
+          <div class="sidebar-unified-stat-card">
+            <div class="unified-stat-col">
+              <span class="stat-number-text">12,000+</span>
+              <span class="stat-caption-text">Partner restaurants</span>
+            </div>
+
+            <div class="stat-vertical-divider"></div>
+
+            <div class="unified-stat-col">
+              <span class="stat-number-text">₹4.8L</span>
+              <span class="stat-caption-text">Monthly revenue</span>
+            </div>
+
+            <div class="stat-vertical-divider"></div>
+
+            <div class="unified-stat-col">
+              <span class="stat-number-text">4.6 </span>
+              <span class="stat-caption-text">Average rating</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Registration Container -->
+      <main class="registration-content">
+        <div class="reg-card">
+          <!-- Registration Header with Back Button -->
+          <div class="reg-header-row">
+            <a
+              href="register-step1.html"
+              class="circular-back-btn"
+              title="Back to Step 1"
+              aria-label="Go back"
+            >
+              <i data-lucide="chevron-left"></i>
+            </a>
+            <div class="reg-title-wrap">
+              <h1 class="reg-title">Upload Documents</h1>
+              <p class="reg-subtitle">
+                We verify every partner before going live. PDF, JPG or PNG up to
+                5 MB.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3-Step Progress Indicator -->
+          <div class="step-progress-bar">
+            <div class="step-indicator-item completed">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 1 · Restaurant details</span
+              >
+            </div>
+            <div class="step-indicator-item active">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 2 · Verification documents</span
+              >
+            </div>
+            <div class="step-indicator-item">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 3 · Review &amp; go live</span
+              >
+            </div>
+          </div>
+
+          <!-- Two-Column Main Layout Grid -->
+          <div class="docs-layout-grid">
+            <!-- LEFT COLUMN: Required Business Documents -->
+            <div class="doc-cards-col">
+              <!-- Document 1: FSSAI License -->
+              <div class="doc-slot-wrapper" id="slot-fssai">
+                <!-- Will be dynamically populated as either dropzone or uploaded card -->
+              </div>
+              <input
+                type="file"
+                id="file-input-fssai"
+                class="hidden-file-input"
+                accept=".pdf,image/jpeg,image/png"
+              />
+
+              <!-- Document 2: GST Certificate -->
+              <div class="doc-slot-wrapper" id="slot-gst">
+                <!-- Will be dynamically populated -->
+              </div>
+              <input
+                type="file"
+                id="file-input-gst"
+                class="hidden-file-input"
+                accept=".pdf,image/jpeg,image/png"
+              />
+
+              <!-- Document 3: PAN Card -->
+              <div class="doc-slot-wrapper" id="slot-pan">
+                <!-- Will be dynamically populated -->
+              </div>
+              <input
+                type="file"
+                id="file-input-pan"
+                class="hidden-file-input"
+                accept=".pdf,image/jpeg,image/png"
+              />
+
+              <!-- Document 4: Cancelled Cheque / Bank Proof -->
+              <div class="doc-slot-wrapper" id="slot-cheque">
+                <!-- Will be dynamically populated -->
+              </div>
+              <input
+                type="file"
+                id="file-input-cheque"
+                class="hidden-file-input"
+                accept=".pdf,image/jpeg,image/png"
+              />
+            </div>
+
+            <!-- RIGHT COLUMN: Restaurant Photos + Checklist + Action -->
+            <div class="doc-side-col">
+              <!-- Restaurant Photos Section -->
+              <div class="photos-section">
+                <div class="section-label-bold">
+                  <span>Restaurant photos</span>
+                  <span
+                    style="
+                      font-weight: 500;
+                      font-size: 0.8rem;
+                      color: var(--secondary-text);
+                    "
+                    id="photo-count-label"
+                    >3 added (Max 5)</span
+                  >
+                </div>
+
+                <div class="photos-gallery-grid" id="photos-gallery">
+                  <!-- Dynamically populated photos + add button -->
+                </div>
+                <input
+                  type="file"
+                  id="photo-file-input"
+                  class="hidden-file-input"
+                  accept="image/jpeg,image/png,image/webp"
+                />
+              </div>
+
+              <!-- Submission Checklist Section -->
+              <div class="checklist-card">
+                <h4 class="checklist-title">Submission checklist</h4>
+                <div class="checklist-items">
+                  <div class="checklist-item" id="chk-fssai">
+                    <span
+                      class="checklist-status-icon checklist-icon-pending"
+                    ></span>
+                    <span>FSSAI License</span>
+                  </div>
+
+                  <div class="checklist-item" id="chk-gst">
+                    <span
+                      class="checklist-status-icon checklist-icon-pending"
+                    ></span>
+                    <span>GST Certificate</span>
+                  </div>
+
+                  <div class="checklist-item" id="chk-pan">
+                    <span
+                      class="checklist-status-icon checklist-icon-pending"
+                    ></span>
+                    <span>PAN Card</span>
+                  </div>
+
+                  <div class="checklist-item" id="chk-cheque">
+                    <span
+                      class="checklist-status-icon checklist-icon-pending"
+                    ></span>
+                    <span>Cancelled Cheque / Bank Proof</span>
+                  </div>
+
+                  <div class="checklist-item" id="chk-photos">
+                    <span
+                      class="checklist-status-icon checklist-icon-pending"
+                    ></span>
+                    <span id="chk-photos-text"
+                      >Restaurant photos (0 added)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="verification-note-row">
+                <i data-lucide="clock"></i>
+                <span>Verification usually takes 24–48 hours.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Navigation Controls -->
+          <div class="reg-actions-row space-between" style="margin-top: 28px">
+            <a href="register-step1.html" class="btn btn-outline-subtle">
+              <i data-lucide="arrow-left"></i>
+              <span>Back to Restaurant Details</span>
+            </a>
+
+            <div style="display: flex; gap: 12px; align-items: center">
+              <button
+                type="button"
+                id="btn-save-draft-step2"
+                class="btn btn-outline"
+              >
+                Save as draft
+              </button>
+
+              <button
+                type="button"
+                id="btn-continue-step2"
+                class="btn btn-primary"
+              >
+                <span class="spinner"></span>
+                <span class="btn-text">Continue</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal-overlay" id="support-modal">
+      <div class="modal-card">
+        <button
+          class="modal-close-btn"
+          id="btn-close-support"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 8px">
+          Partner Support
+        </h3>
+        <p
+          style="
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+          "
+        >
+          Need help registering your restaurant? Our dedicated partner
+          onboarding team is here for you.
+        </p>
+        <div
+          style="
+            background: var(--light-purple-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+          "
+        >
+          <div style="margin-bottom: 10px">
+            <strong>📞 Helpline:</strong> 1800-419-YUDU (9838)
+          </div>
+          <div style="margin-bottom: 10px">
+            <strong>📧 Email:</strong> partner.support@yudufood.com
+          </div>
+          <div>
+            <strong>⏰ Support Hours:</strong> 9:00 AM – 10:00 PM (Mon–Sun)
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary btn-block"
+          id="btn-dismiss-support"
+        >
+          Got it
+        </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/register-step2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review & Go Live – Step 3 | YUDU Partner Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/registration.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="registration-viewport">
+    <!-- Top Navigation Bar -->
+    <header class="top-navbar">
+      <a
+        href="partner-login.html"
+        class="nav-brand yudu-logo-text"
+        title="YUDU Restaurant Partner"
+      >
+        <div class="yudu-logo-brand">
+          <span class="brand-text">YUDU</span>
+        </div>
+        <span class="brand-tagline">Good Food. Good Mood.</span>
+      </a>
+
+      <div class="nav-right-link">
+        <span>Need help?</span>
+        <a href="#" id="nav-support-link" class="highlight-link"
+          >Contact support</a
+        >
+      </div>
+    </header>
+
+    <!-- Split Layout: Fixed Left Hero Sidebar + Right Scrollable Form -->
+    <div class="reg-layout-split">
+      <!-- FIXED LEFT HERO SIDEBAR (Under navbar, does not scroll) -->
+      <aside class="reg-fixed-sidebar">
+        <div class="sidebar-hero-content">
+          <div class="sidebar-badge">
+            <svg
+              class="badge-icon-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+              />
+            </svg>
+            <span>PARTNER ONBOARDING</span>
+          </div>
+
+          <h2 class="sidebar-hero-title">Partner with YUDU<br />today.</h2>
+          <p class="sidebar-hero-desc">
+            Complete your 3–step registration and start reaching thousands of
+            hungry customers nearby.
+          </p>
+
+          <!-- 3 Features List Matching Reference Image -->
+          <div class="sidebar-features-list">
+            <!-- Feature 1: Fast 24-48h Approval -->
+            <div class="sidebar-feature-row">
+              <div class="feature-icon-bubble">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <div class="feature-text-block">
+                <h4 class="feature-heading">Fast 24–48h Approval</h4>
+                <p class="feature-subtext">
+                  Dedicated onboarding manager assists your setup.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3: Weekly Payouts -->
+            <div class="sidebar-feature-row">
+              <div class="feature-icon-bubble">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20v-6M6 20V10M18 20V4" />
+                </svg>
+              </div>
+              <div class="feature-text-block">
+                <h4 class="feature-heading">Weekly Payouts</h4>
+                <p class="feature-subtext">
+                  Automated direct bank deposits every single week.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Unified Glassmorphic Statistic Card -->
+        <div class="sidebar-bottom-area">
+          <div class="sidebar-unified-stat-card">
+            <div class="unified-stat-col">
+              <span class="stat-number-text">12,000+</span>
+              <span class="stat-caption-text">Partner restaurants</span>
+            </div>
+
+            <div class="stat-vertical-divider"></div>
+
+            <div class="unified-stat-col">
+              <span class="stat-number-text">₹4.8L</span>
+              <span class="stat-caption-text">Monthly revenue</span>
+            </div>
+
+            <div class="stat-vertical-divider"></div>
+
+            <div class="unified-stat-col">
+              <span class="stat-number-text">4.6 </span>
+              <span class="stat-caption-text">Average rating</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Registration Container -->
+      <main class="registration-content">
+        <div class="reg-card">
+          <!-- Registration Header with Back Button -->
+          <div class="reg-header-row" id="review-header-row">
+            <a
+              href="register-step2.html"
+              class="circular-back-btn"
+              title="Back to Step 2"
+              aria-label="Go back"
+            >
+              <i data-lucide="chevron-left"></i>
+            </a>
+            <div class="reg-title-wrap">
+              <h1 class="reg-title">Review &amp; Go Live</h1>
+              <p class="reg-subtitle">
+                Review your restaurant information and documents before
+                submitting your application.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3-Step Progress Indicator -->
+          <div class="step-progress-bar" id="review-step-bar">
+            <div class="step-indicator-item completed">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 1 · Restaurant details</span
+              >
+            </div>
+            <div class="step-indicator-item completed">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 2 · Verification documents</span
+              >
+            </div>
+            <div class="step-indicator-item active">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 3 · Review &amp; go live</span
+              >
+            </div>
+          </div>
+
+          <!-- 1. MAIN REVIEW INTERFACE -->
+          <div id="review-form-container">
+            <div class="review-cards-list">
+              <!-- CARD 1: Restaurant Information -->
+              <section class="review-section-card">
+                <div class="review-card-head">
+                  <h3 class="review-card-title">
+                    <i
+                      data-lucide="store"
+                      style="
+                        color: var(--secondary-purple);
+                        width: 20px;
+                        height: 20px;
+                      "
+                    ></i>
+                    <span>Restaurant Information</span>
+                  </h3>
+                  <a href="register-step1.html" class="btn-edit-pill">
+                    <i
+                      data-lucide="edit-2"
+                      style="width: 14px; height: 14px"
+                    ></i>
+                    <span>Edit Details</span>
+                  </a>
+                </div>
+
+                <div class="review-grid-2col">
+                  <div class="review-field-item">
+                    <span class="review-field-label">Restaurant Name</span>
+                    <span class="review-field-value" id="val-restaurant-name"
+                      >Biryani Factory</span
+                    >
+                  </div>
+
+                  <div class="review-field-item">
+                    <span class="review-field-label">Owner Name</span>
+                    <span class="review-field-value" id="val-owner-name"
+                      >Dawan Bhai</span
+                    >
+                  </div>
+
+                  <div class="review-field-item">
+                    <span class="review-field-label">Mobile Number</span>
+                    <span class="review-field-value" id="val-mobile-number"
+                      >+91 98765 43210</span
+                    >
+                  </div>
+
+                  <div class="review-field-item">
+                    <span class="review-field-label">Business Email</span>
+                    <span class="review-field-value" id="val-business-email"
+                      >owner@biryanifactory.in</span
+                    >
+                  </div>
+
+                  <div class="review-field-item" style="grid-column: 1 / -1">
+                    <span class="review-field-label">Cuisine Types</span>
+                    <div class="review-cuisine-tags" id="val-cuisines">
+                      <span class="cuisine-tag">Biryani</span>
+                      <span class="cuisine-tag">North Indian</span>
+                    </div>
+                  </div>
+
+                  <div class="review-field-item" style="grid-column: 1 / -1">
+                    <span class="review-field-label">Restaurant Address</span>
+                    <span class="review-field-value" id="val-address"
+                      >12-4, RTC Cross roads , Hyderabad</span
+                    >
+                  </div>
+
+                  <div class="review-field-item">
+                    <span class="review-field-label">City &amp; Pincode</span>
+                    <span class="review-field-value" id="val-city-pincode"
+                      >Hyderabad - 500001</span
+                    >
+                  </div>
+
+                  <div class="review-field-item">
+                    <span class="review-field-label">Operating Hours</span>
+                    <span class="review-field-value" id="val-operating-hours"
+                      >10:00 AM – 11:00 PM</span
+                    >
+                  </div>
+                </div>
+              </section>
+
+              <!-- CARD 2: Verification Documents -->
+              <section class="review-section-card">
+                <div class="review-card-head">
+                  <h3 class="review-card-title">
+                    <i
+                      data-lucide="file-check"
+                      style="
+                        color: var(--secondary-purple);
+                        width: 20px;
+                        height: 20px;
+                      "
+                    ></i>
+                    <span>Verification Documents</span>
+                  </h3>
+                  <a href="register-step2.html" class="btn-edit-pill">
+                    <i
+                      data-lucide="edit-2"
+                      style="width: 14px; height: 14px"
+                    ></i>
+                    <span>Edit Documents</span>
+                  </a>
+                </div>
+
+                <div class="review-docs-grid" id="review-docs-list">
+                  <!-- Dynamically populated document badges -->
+                </div>
+              </section>
+
+              <!-- CARD 3: Restaurant Photos -->
+              <section class="review-section-card">
+                <div class="review-card-head">
+                  <h3 class="review-card-title">
+                    <i
+                      data-lucide="image"
+                      style="
+                        color: var(--secondary-purple);
+                        width: 20px;
+                        height: 20px;
+                      "
+                    ></i>
+                    <span id="review-photos-title"
+                      >Restaurant Photos (3 uploaded)</span
+                    >
+                  </h3>
+                  <a href="register-step2.html" class="btn-edit-pill">
+                    <i
+                      data-lucide="edit-2"
+                      style="width: 14px; height: 14px"
+                    ></i>
+                    <span>Manage Photos</span>
+                  </a>
+                </div>
+
+                <div class="photos-gallery-grid" id="review-photos-grid">
+                  <!-- Photos preview grid -->
+                </div>
+              </section>
+
+              <!-- CARD 4: Terms and Confirmation -->
+              <section class="terms-checkbox-card">
+                <label class="custom-checkbox-label" for="terms-checkbox">
+                  <input
+                    type="checkbox"
+                    id="terms-checkbox"
+                    class="custom-checkbox-input"
+                    required
+                  />
+                  <span>
+                    I confirm that all the information and documents provided
+                    are accurate and belong to my restaurant. I agree to the
+                    <a
+                      href="#"
+                      style="color: var(--secondary-purple); font-weight: 600"
+                      >YUDU Partner Terms of Service</a
+                    >
+                    and
+                    <a
+                      href="#"
+                      style="color: var(--secondary-purple); font-weight: 600"
+                      >Privacy Policy</a
+                    >.
+                  </span>
+                </label>
+                <span
+                  class="error-message"
+                  id="error-terms"
+                  style="margin-left: 32px"
+                  >You must confirm your information before submitting.</span
+                >
+              </section>
+            </div>
+
+            <!-- Bottom Actions Row -->
+            <div class="reg-actions-row space-between">
+              <a href="register-step2.html" class="btn btn-outline-subtle">
+                <i data-lucide="arrow-left"></i>
+                <span>Back</span>
+              </a>
+
+              <button
+                type="button"
+                id="btn-final-submit"
+                class="btn btn-primary btn-lg"
+              >
+                <i data-lucide="shield-check" class="btn-icon"></i>
+                <span class="spinner"></span>
+                <span class="btn-text">Submit for Verification</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. SUCCESS CONFIRMATION SCREEN (Shown after submission) -->
+          <div id="submission-success-view" class="submission-success-view">
+            <!-- Animated Green Celebration Shield -->
+            <div class="success-badge-circle">
+              <i data-lucide="check"></i>
+            </div>
+
+            <h2 class="success-main-title">
+              Application Submitted Successfully!
+            </h2>
+            <p class="success-main-desc">
+              Thank you for choosing YUDU. Your restaurant registration has been
+              submitted for verification.
+            </p>
+
+            <!-- Application Summary Card -->
+            <div class="app-meta-card">
+              <div class="app-meta-row">
+                <span class="app-meta-label">Application Reference Number</span>
+                <span
+                  class="app-meta-val"
+                  id="success-ref-num"
+                  style="
+                    color: var(--primary-purple);
+                    font-family: monospace;
+                    font-size: 1.05rem;
+                  "
+                >
+                  YUDU-APP-2026-98412
+                </span>
+              </div>
+
+              <div class="app-meta-row">
+                <span class="app-meta-label">Submission Status</span>
+                <span class="badge badge-pending">
+                  <span
+                    style="
+                      display: inline-block;
+                      width: 6px;
+                      height: 6px;
+                      border-radius: 50%;
+                      background-color: var(--warning-amber);
+                    "
+                  ></span>
+                  Pending Verification
+                </span>
+              </div>
+
+              <div class="app-meta-row">
+                <span class="app-meta-label">Estimated Verification Time</span>
+                <span
+                  class="app-meta-val"
+                  style="color: var(--secondary-purple)"
+                  >24–48 hours</span
+                >
+              </div>
+
+              <div class="app-meta-row">
+                <span class="app-meta-label">Registered Restaurant</span>
+                <span class="app-meta-val" id="success-restaurant-name"
+                  >Biryani Factory, Hyderabad</span
+                >
+              </div>
+
+              <div class="app-meta-row">
+                <span class="app-meta-label">Submitted On</span>
+                <span class="app-meta-val" id="success-timestamp"
+                  >Nov 18, 2026 · 11:30 AM</span
+                >
+              </div>
+            </div>
+
+            <!-- Next Steps Roadmap -->
+            <div class="success-roadmap">
+              <h4 class="roadmap-title">What happens next?</h4>
+              <div class="roadmap-list">
+                <div class="roadmap-item">
+                  <div class="roadmap-num">1</div>
+                  <div class="roadmap-content">
+                    <h5>Document &amp; FSSAI Verification</h5>
+                    <p>
+                      Our onboarding team reviews your legal documents within 24
+                      to 48 hours.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="roadmap-item">
+                  <div class="roadmap-num">2</div>
+                  <div class="roadmap-content">
+                    <h5>Menu Setup &amp; Pricing Call</h5>
+                    <p>
+                      A dedicated YUDU account manager will help configure your
+                      online menu and digital catalogue.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="roadmap-item">
+                  <div class="roadmap-num">3</div>
+                  <div class="roadmap-content">
+                    <h5>Merchant Kit &amp; Partner App Activation</h5>
+                    <p>
+                      Receive your YUDU partner login credentials and dispatch
+                      of soundbox/order tablet.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="roadmap-item">
+                  <div class="roadmap-num">4</div>
+                  <div class="roadmap-content">
+                    <h5>Go Live &amp; Receive Orders!</h5>
+                    <p>
+                      Turn on restaurant status and start receiving hungry
+                      customers across your city.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="success-actions-row">
+              <a href="partner-login.html" class="btn btn-primary btn-lg">
+                <i data-lucide="log-in"></i>
+                <span>Back to Login</span>
+              </a>
+
+              <button
+                type="button"
+                class="btn btn-outline"
+                id="btn-print-summary"
+              >
+                <i data-lucide="printer"></i>
+                <span>Print Application Summary</span>
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-outline-subtle"
+                id="btn-reset-demo"
+              >
+                <i data-lucide="rotate-ccw"></i>
+                <span>Start Fresh Registration</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal-overlay" id="support-modal">
+      <div class="modal-card">
+        <button
+          class="modal-close-btn"
+          id="btn-close-support"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 8px">
+          Partner Support
+        </h3>
+        <p
+          style="
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+          "
+        >
+          Have questions regarding your application?
+        </p>
+        <div
+          style="
+            background: var(--light-purple-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+          "
+        >
+          <div style="margin-bottom: 10px">
+            <strong>📞 Helpline:</strong> 1800-419-YUDU (9838)
+          </div>
+          <div style="margin-bottom: 10px">
+            <strong>📧 Email:</strong> partner.support@yudufood.com
+          </div>
+          <div>
+            <strong>⏰ Support Hours:</strong> 9:00 AM – 10:00 PM (Mon–Sun)
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary btn-block"
+          id="btn-dismiss-support"
+        >
+          Got it
+        </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/register-step3.js"></script>
+  </body>
+</html>

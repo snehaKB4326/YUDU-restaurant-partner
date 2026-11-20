@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Partner Login | YUDU Partner Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="login-viewport">
+      <!-- LEFT SECTION - Purple Gradient Hero -->
+      <section class="login-hero">
+        <!-- Top Brand Logo (Text + CSS) -->
+        <div class="hero-brand">
+          <a
+            href="partner-login.html"
+            class="yudu-logo-text"
+            title="YUDU Restaurant Partner"
+          >
+            <div class="yudu-logo-brand">
+              <span class="brand-text">YUDU</span>
+            </div>
+            <span class="brand-tagline">Good Food. Good Mood.</span>
+          </a>
+        </div>
+
+        <!-- Main Hero Pitch -->
+        <div class="hero-content">
+          <h1 class="hero-title">Grow your restaurant<br />with YUDU.</h1>
+          <p class="hero-desc">
+            Manage live orders, menu and payouts in one place — built for
+            restaurant partners.
+          </p>
+
+          <!-- Feature Points with Check Icons -->
+          <div class="hero-features">
+            <div class="feature-item">
+              <span class="feature-icon-circle">
+                <i data-lucide="check"></i>
+              </span>
+              <span>Live order management with one-tap accept</span>
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-icon-circle">
+                <i data-lucide="check"></i>
+              </span>
+              <span>Menu and stock control in seconds</span>
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-icon-circle">
+                <i data-lucide="check"></i>
+              </span>
+              <span>Transparent weekly payouts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Statistic Cards -->
+        <div class="hero-stats-row">
+          <div class="stat-box">
+            <div class="stat-value">12,000+</div>
+            <div class="stat-caption">Partner restaurants</div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-value">₹4.8L</div>
+            <div class="stat-caption">Monthly revenue</div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-value">4.6</div>
+            <div class="stat-caption">Average rating</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT SECTION - Centered White Login Card -->
+      <section class="login-panel">
+        <div class="login-card">
+          <!-- Restaurant Partner Identification Banner -->
+          <div class="partner-banner">
+            <div class="banner-icon-box">
+              <i data-lucide="store"></i>
+            </div>
+            <div class="banner-text">
+              <span class="banner-title">Restaurant Partner</span>
+              <span class="banner-subtitle"
+                >Manage orders, menu and payouts in one place.</span
+              >
+            </div>
+          </div>
+
+          <!-- 1. STANDARD PASSWORD LOGIN VIEW -->
+          <div id="password-login-view" class="password-view">
+            <div class="card-header-area">
+              <h2 class="card-title">Welcome back</h2>
+              <p class="card-desc">
+                Log in to your partner account to continue.
+              </p>
+            </div>
+
+            <form id="login-form" novalidate>
+              <!-- Field 1: Email or mobile number -->
+              <div class="form-group" id="group-identifier">
+                <label class="form-label" for="login-identifier">
+                  <span>Email or mobile number</span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <i data-lucide="mail"></i>
+                  </span>
+                  <input
+                    type="text"
+                    id="login-identifier"
+                    class="form-input has-icon-left"
+                    placeholder="Enter your email or mobile number"
+                    autocomplete="username"
+                  />
+                </div>
+                <span class="error-message" id="error-identifier"
+                  >Please enter a valid email or 10-digit mobile number.</span
+                >
+              </div>
+
+              <!-- Field 2: Password -->
+              <div class="form-group" id="group-password">
+                <label class="form-label" for="login-password">
+                  <span>Password</span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <i data-lucide="lock"></i>
+                  </span>
+                  <input
+                    type="password"
+                    id="login-password"
+                    class="form-input has-icon-left has-icon-right"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                  />
+                  <button
+                    type="button"
+                    class="input-icon-right"
+                    id="toggle-password-btn"
+                    aria-label="Show password"
+                    title="Show password"
+                  >
+                    <svg
+                      class="eye-icon-svg"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </button>
+                </div>
+                <span class="error-message" id="error-password"
+                  >Password must be at least 6 characters long.</span
+                >
+              </div>
+
+              <!-- Forgot Password Link -->
+              <div class="forgot-password-row">
+                <a
+                  href="#"
+                  id="forgot-password-link"
+                  class="forgot-password-link"
+                  >Forgot password?</a
+                >
+              </div>
+
+              <!-- Primary Button: Log In -->
+              <button
+                type="submit"
+                id="btn-login-submit"
+                class="btn btn-primary btn-block btn-lg"
+              >
+                <span class="spinner"></span>
+                <span class="btn-text">Log In</span>
+              </button>
+
+              <!-- Divider -->
+              <div class="auth-divider">
+                <span>or</span>
+              </div>
+
+              <!-- Outlined Button: Login with OTP -->
+              <button
+                type="button"
+                id="btn-switch-otp"
+                class="btn btn-outline btn-block"
+              >
+                <i data-lucide="phone"></i>
+                <span>Login with OTP</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- 2. OTP LOGIN VIEW (Switched dynamically) -->
+          <div id="otp-login-view" class="otp-view">
+            <div class="card-header-area">
+              <h2 class="card-title">OTP Login</h2>
+              <p class="card-desc">
+                Enter your registered mobile number to receive a one-time
+                password.
+              </p>
+            </div>
+
+            <form id="otp-form" novalidate>
+              <div class="form-group" id="group-otp-mobile">
+                <label class="form-label" for="otp-mobile-input">
+                  <span>Mobile number</span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <i data-lucide="phone"></i>
+                  </span>
+                  <input
+                    type="tel"
+                    id="otp-mobile-input"
+                    class="form-input has-icon-left"
+                    placeholder="Enter your mobile number"
+                  />
+                </div>
+                <span class="error-message" id="error-otp-mobile"
+                  >Enter a valid 10-digit mobile number.</span
+                >
+              </div>
+
+              <div id="otp-code-section" style="display: none">
+                <label class="form-label">
+                  <span>Enter 6-Digit OTP</span>
+                  <span
+                    style="
+                      font-weight: 500;
+                      font-size: 0.8rem;
+                      color: var(--secondary-purple);
+                    "
+                    >Demo OTP: 123456</span
+                  >
+                </label>
+                <div class="otp-inputs-grid">
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="otp-box"
+                    data-index="0"
+                    autofocus
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="otp-box"
+                    data-index="1"
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="otp-box"
+                    data-index="2"
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="otp-box"
+                    data-index="3"
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="otp-box"
+                    data-index="4"
+                  />
+                  <input
+                    type="text"
+                    maxlength="1"
+                    class="otp-box"
+                    data-index="5"
+                  />
+                </div>
+
+                <div class="resend-otp-row">
+                  <span id="otp-timer-text"
+                    >Resend in <strong id="countdown-seconds">30</strong>s</span
+                  >
+                  <button
+                    type="button"
+                    id="btn-resend-otp"
+                    class="resend-btn"
+                    disabled
+                  >
+                    Resend OTP
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                id="btn-request-otp"
+                class="btn btn-primary btn-block btn-lg"
+              >
+                <span class="spinner"></span>
+                <span class="btn-text">Get OTP</span>
+              </button>
+
+              <button
+                type="submit"
+                id="btn-verify-otp"
+                class="btn btn-primary btn-block btn-lg"
+                style="display: none"
+              >
+                <span class="spinner"></span>
+                <span class="btn-text">Verify &amp; Log In</span>
+              </button>
+
+              <div class="auth-divider">
+                <span>or</span>
+              </div>
+
+              <button
+                type="button"
+                id="btn-back-password"
+                class="btn btn-outline btn-block"
+              >
+                <i data-lucide="arrow-left"></i>
+                <span>Back to Password Login</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Footer Link -->
+          <div class="card-footer-text">
+            New to YUDU?
+            <a href="register-step1.html">Register your restaurant</a>
+          </div>
+
+          <!-- Demo Quick Helper -->
+        </div>
+      </section>
+    </div>
+
+    <!-- FORGOT PASSWORD MODAL -->
+    <div class="modal-overlay" id="forgot-modal">
+      <div class="modal-card">
+        <button
+          class="modal-close-btn"
+          id="btn-close-forgot"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 8px">
+          Reset your password
+        </h3>
+        <p
+          style="
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+          "
+        >
+          Enter your registered email address or mobile number. We will send you
+          instructions to reset your partner account password.
+        </p>
+
+        <form id="forgot-form">
+          <div class="form-group">
+            <label class="form-label" for="forgot-input"
+              >Email or Mobile Number</label
+            >
+            <div class="input-wrapper">
+              <span class="input-icon-left"><i data-lucide="mail"></i></span>
+              <input
+                type="text"
+                id="forgot-input"
+                class="form-input has-icon-left"
+                placeholder="e.g. partner@biryanifactory.in"
+                required
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            style="margin-top: 10px"
+          >
+            Send Reset Instructions
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

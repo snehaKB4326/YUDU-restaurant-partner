@@ -1,0 +1,703 @@
+/* ==========================================================================
+   YUDU Restaurant Partner Portal - Core Design System & Styles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Brand Color Palette */
+  --primary-purple: #5420A8;
+  --secondary-purple: #7135E6;
+  --accent-purple-light: #8138F5;
+  --bg-gradient: linear-gradient(120deg, #5420A8, #8138F5);
+  --btn-gradient: linear-gradient(90deg, #5420A8, #7135E6);
+  --btn-gradient-hover: linear-gradient(90deg, #471891, #622bc7);
+  
+  /* Backgrounds & Surfaces */
+  --light-purple-bg: #F5F2FF;
+  --light-purple-subtle: #FAF8FF;
+  --white: #FFFFFF;
+  --card-bg: #FFFFFF;
+  
+  /* Typography & Neutral Colors */
+  --main-text: #211D50;
+  --secondary-text: #77758F;
+  --muted-text: #A19EB7;
+  --border-color: #E8E3F5;
+  --border-focus: #7135E6;
+  --input-bg: #FFFFFF;
+  
+  /* Status Colors */
+  --success-green: #168B4B;
+  --success-bg: #E8F7EE;
+  --success-border: #C3EED5;
+  --error-red: #E5484D;
+  --error-bg: #FDEBEC;
+  --error-border: #F9C6C8;
+  --warning-amber: #D97706;
+  --warning-bg: #FEF3C7;
+  
+  /* Shadows & Elevation */
+  --shadow-sm: 0 2px 8px rgba(84, 32, 168, 0.04);
+  --shadow-md: 0 8px 24px rgba(84, 32, 168, 0.08);
+  --shadow-lg: 0 16px 40px rgba(84, 32, 168, 0.12);
+  --shadow-btn: 0 4px 14px rgba(84, 32, 168, 0.35);
+  --shadow-btn-hover: 0 6px 20px rgba(84, 32, 168, 0.45);
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Fonts */
+  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Resets & Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--light-purple-bg);
+  color: var(--main-text);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--secondary-purple);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-purple);
+  text-decoration: underline;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--main-text);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--secondary-text);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   Global Layout Containers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Top Navigation Bar (Registration & Internal Pages)
+   -------------------------------------------------------------------------- */
+.top-navbar {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 40px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(84, 32, 168, 0.04);
+}
+
+.nav-brand {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   YUDU Pure CSS & HTML Text Logo Component
+   -------------------------------------------------------------------------- */
+.yudu-logo-text {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none !important;
+  line-height: 1;
+  user-select: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.yudu-logo-text:hover {
+  transform: translateY(-1px);
+  text-decoration: none !important;
+}
+
+.yudu-logo-brand {
+  display: inline-flex;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.yudu-logo-brand .brand-text {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.yudu-logo-brand .brand-dot {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #FF6B00;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(255, 107, 0, 0.35);
+}
+
+.yudu-logo-brand .brand-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+.yudu-logo-text .brand-tagline {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: 3px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Navbar Theme (White Background) */
+.nav-brand.yudu-logo-text .brand-text,
+.nav-brand .brand-text {
+  font-size: 1.85rem;
+  color: var(--primary-purple);
+}
+
+.nav-brand.yudu-logo-text .brand-dot,
+.nav-brand .brand-dot {
+  width: 9px;
+  height: 9px;
+  margin-left: 2px;
+  margin-top: 1px;
+}
+
+.nav-brand.yudu-logo-text .brand-dot::after,
+.nav-brand .brand-dot::after {
+  width: 3px;
+  height: 3px;
+}
+
+.nav-brand.yudu-logo-text .brand-tagline,
+.nav-brand .brand-tagline {
+  font-size: 0.65rem;
+  color: var(--secondary-purple);
+}
+
+/* Legacy fallback support */
+.brand-logo-img {
+  height: 44px;
+  width: auto;
+}
+
+.nav-right-link {
+  font-size: 0.925rem;
+  color: var(--secondary-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-right-link a,
+.nav-right-link .highlight-link {
+  color: var(--primary-purple);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-right-link a:hover,
+.nav-right-link .highlight-link:hover {
+  color: var(--secondary-purple);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  text-decoration: none !important;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--btn-gradient);
+  color: var(--white);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn-primary:hover {
+  background: var(--btn-gradient-hover);
+  box-shadow: var(--shadow-btn-hover);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: var(--white);
+  color: var(--secondary-purple);
+  border: 1.5px solid var(--secondary-purple);
+}
+
+.btn-outline:hover {
+  background-color: var(--light-purple-bg);
+  border-color: var(--primary-purple);
+  color: var(--primary-purple);
+}
+
+.btn-outline-subtle {
+  background-color: var(--white);
+  color: var(--main-text);
+  border: 1.5px solid var(--border-color);
+}
+
+.btn-outline-subtle:hover {
+  border-color: var(--secondary-purple);
+  color: var(--secondary-purple);
+  background-color: var(--light-purple-bg);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn:disabled, .btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn .spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--white);
+  animation: spin 0.8s linear infinite;
+}
+
+.btn.loading .spinner {
+  display: inline-block;
+}
+
+.btn.loading .btn-text,
+.btn.loading .btn-icon {
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Form Controls
+   -------------------------------------------------------------------------- */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--main-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-label .required-star {
+  color: var(--error-red);
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 14px;
+  color: var(--secondary-text);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  width: 20px;
+  height: 20px;
+}
+
+.input-icon-right {
+  position: absolute;
+  right: 14px;
+  color: var(--secondary-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color var(--transition-fast);
+  z-index: 2;
+}
+
+.input-icon-right svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  pointer-events: none;
+  transition: stroke var(--transition-fast);
+}
+
+.input-icon-right:hover {
+  color: var(--primary-purple);
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  height: 48px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--input-bg);
+  color: var(--main-text);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.has-icon-left {
+  padding-left: 44px !important;
+}
+
+.has-icon-right {
+  padding-right: 44px !important;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: var(--muted-text);
+  font-weight: 400;
+}
+
+.form-input:hover, .form-select:hover, .form-textarea:hover {
+  border-color: #D1C7EC;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--secondary-purple);
+  box-shadow: 0 0 0 3px rgba(113, 53, 230, 0.12);
+}
+
+.form-input.error, .form-select.error {
+  border-color: var(--error-red) !important;
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.12) !important;
+}
+
+.error-message {
+  font-size: 0.8rem;
+  color: var(--error-red);
+  margin-top: 4px;
+  display: none;
+  font-weight: 500;
+}
+
+.form-group.has-error .error-message {
+  display: block;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Badges & Tags
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.badge-success {
+  background-color: var(--success-bg);
+  color: var(--success-green);
+  border: 1px solid var(--success-border);
+}
+
+.badge-pending {
+  background-color: var(--warning-bg);
+  color: var(--warning-amber);
+  border: 1px solid #FDE68A;
+}
+
+.badge-purple {
+  background-color: rgba(113, 53, 230, 0.1);
+  color: var(--primary-purple);
+  border: 1px solid rgba(113, 53, 230, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Custom Toast Notifications
+   -------------------------------------------------------------------------- */
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 320px;
+  max-width: 440px;
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-lg);
+  border-left: 4px solid var(--secondary-purple);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transform: translateX(120%);
+  transition: transform var(--transition-slow);
+  font-size: 0.9rem;
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+.toast.toast-success {
+  border-left-color: var(--success-green);
+}
+
+.toast.toast-error {
+  border-left-color: var(--error-red);
+}
+
+.toast-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.toast-content {
+  flex-grow: 1;
+}
+
+.toast-title {
+  font-weight: 700;
+  color: var(--main-text);
+  margin-bottom: 2px;
+}
+
+.toast-message {
+  color: var(--secondary-text);
+  font-size: 0.85rem;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: var(--muted-text);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+}
+
+.toast-close:hover {
+  color: var(--main-text);
+}
+
+/* --------------------------------------------------------------------------
+   Modal Backdrop & Containers
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(33, 29, 80, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  max-width: 500px;
+  width: 100%;
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: all var(--transition-slow);
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #F3F1FA;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-text);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: #E5DFF8;
+  color: var(--primary-purple);
+}
+
+/* --------------------------------------------------------------------------
+   Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}

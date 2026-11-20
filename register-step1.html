@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Restaurant – Step 1 | YUDU Partner Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/registration.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="registration-viewport">
+    <!-- Top Navigation Bar -->
+    <header class="top-navbar">
+      <a
+        href="partner-login.html"
+        class="nav-brand yudu-logo-text"
+        title="YUDU Restaurant Partner"
+      >
+        <div class="yudu-logo-brand">
+          <span class="brand-text">YUDU</span>
+        </div>
+        <span class="brand-tagline">Good Food. Good Mood.</span>
+      </a>
+
+      <div class="nav-right-link">
+        <span>Already a partner?</span>
+        <a href="partner-login.html" class="highlight-link">Log in</a>
+      </div>
+    </header>
+
+    <!-- Split Layout: Fixed Left Hero Sidebar + Right Scrollable Form -->
+    <div class="reg-layout-split">
+      <!-- FIXED LEFT HERO SIDEBAR (Under navbar, does not scroll) -->
+      <aside class="reg-fixed-sidebar">
+        <div class="sidebar-hero-content">
+          <div class="sidebar-badge">
+            <svg
+              class="badge-icon-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+              />
+            </svg>
+            <span>PARTNER ONBOARDING</span>
+          </div>
+
+          <h2 class="sidebar-hero-title">Partner with YUDU<br />today.</h2>
+          <p class="sidebar-hero-desc">
+            Complete your 3–step registration and start reaching thousands of
+            hungry customers nearby.
+          </p>
+
+          <!-- 3 Features List Matching Reference Image -->
+          <div class="sidebar-features-list">
+            <!-- Feature 1: Fast 24-48h Approval -->
+            <div class="sidebar-feature-row">
+              <div class="feature-icon-bubble">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <div class="feature-text-block">
+                <h4 class="feature-heading">Fast 24–48h Approval</h4>
+                <p class="feature-subtext">
+                  Dedicated onboarding manager assists your setup.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3: Weekly Payouts -->
+            <div class="sidebar-feature-row">
+              <div class="feature-icon-bubble">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20v-6M6 20V10M18 20V4" />
+                </svg>
+              </div>
+              <div class="feature-text-block">
+                <h4 class="feature-heading">Weekly Payouts</h4>
+                <p class="feature-subtext">
+                  Automated direct bank deposits every single week.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Unified Glassmorphic Statistic Card -->
+        <div class="sidebar-bottom-area">
+          <div class="sidebar-unified-stat-card">
+            <div class="unified-stat-col">
+              <span class="stat-number-text">12,000+</span>
+              <span class="stat-caption-text">Partner restaurants</span>
+            </div>
+
+            <div class="stat-vertical-divider"></div>
+
+            <div class="unified-stat-col">
+              <span class="stat-number-text">₹4.8L</span>
+              <span class="stat-caption-text">Monthly revenue</span>
+            </div>
+
+            <div class="stat-vertical-divider"></div>
+
+            <div class="unified-stat-col">
+              <span class="stat-number-text">4.6 </span>
+              <span class="stat-caption-text">Average rating</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Registration Container -->
+      <main class="registration-content">
+        <div class="reg-card">
+          <!-- Registration Header with Back Button -->
+          <div class="reg-header-row">
+            <a
+              href="partner-login.html"
+              class="circular-back-btn"
+              title="Back to Login"
+              aria-label="Go back"
+            >
+              <i data-lucide="chevron-left"></i>
+            </a>
+            <div class="reg-title-wrap">
+              <h1 class="reg-title">Register Restaurant</h1>
+              <p class="reg-subtitle">
+                Tell us about your restaurant to get started.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3-Step Progress Indicator -->
+          <div class="step-progress-bar">
+            <div class="step-indicator-item active">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 1 · Restaurant details</span
+              >
+            </div>
+            <div class="step-indicator-item">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 2 · Verification documents</span
+              >
+            </div>
+            <div class="step-indicator-item">
+              <div class="step-indicator-line"></div>
+              <span class="step-indicator-text"
+                >Step 3 · Review &amp; go live</span
+              >
+            </div>
+          </div>
+
+          <!-- Demo Quick Helper -->
+
+          <!-- Step 1 Form -->
+          <form id="step1-form" novalidate>
+            <!-- 1. Restaurant Name -->
+            <div class="form-group" id="group-restaurant-name">
+              <label class="form-label" for="restaurant-name">
+                <span>Restaurant name<span class="required-star">*</span></span>
+              </label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <i data-lucide="store"></i>
+                </span>
+                <input
+                  type="text"
+                  id="restaurant-name"
+                  class="form-input has-icon-left"
+                  placeholder="Enter restaurant name"
+                  required
+                />
+              </div>
+              <span class="error-message"
+                >Please enter the official restaurant name.</span
+              >
+            </div>
+
+            <!-- 2. Owner Name & Mobile Number (2 columns) -->
+            <div class="form-row">
+              <div class="form-group" id="group-owner-name">
+                <label class="form-label" for="owner-name">
+                  <span>Owner name<span class="required-star">*</span></span>
+                </label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    id="owner-name"
+                    class="form-input"
+                    placeholder="Enter owner name"
+                    required
+                  />
+                </div>
+                <span class="error-message"
+                  >Please enter the restaurant owner's name.</span
+                >
+              </div>
+
+              <div class="form-group" id="group-mobile-number">
+                <label class="form-label" for="mobile-number">
+                  <span>Mobile number<span class="required-star">*</span></span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <i data-lucide="phone"></i>
+                  </span>
+                  <input
+                    type="tel"
+                    id="mobile-number"
+                    class="form-input has-icon-left"
+                    placeholder="+91 XXXXX XXXXX"
+                    required
+                  />
+                </div>
+                <span class="error-message"
+                  >Please enter a valid 10-digit mobile number.</span
+                >
+              </div>
+            </div>
+
+            <!-- 3. Business Email -->
+            <div class="form-group" id="group-business-email">
+              <label class="form-label" for="business-email">
+                <span>Business email<span class="required-star">*</span></span>
+              </label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <i data-lucide="mail"></i>
+                </span>
+                <input
+                  type="email"
+                  id="business-email"
+                  class="form-input has-icon-left"
+                  placeholder="Enter business email"
+                  required
+                />
+              </div>
+              <span class="error-message"
+                >Please enter a valid email address.</span
+              >
+            </div>
+
+            <!-- 4. Cuisine Type (Multi-select Pills) -->
+            <div class="form-group" id="group-cuisines">
+              <label class="form-label">
+                <span>Cuisine type<span class="required-star">*</span></span>
+                <span
+                  style="
+                    font-weight: 400;
+                    font-size: 0.8rem;
+                    color: var(--secondary-text);
+                  "
+                  >Select all that apply</span
+                >
+              </label>
+              <div class="cuisines-grid" id="cuisines-container">
+                <button
+                  type="button"
+                  class="cuisine-pill selected"
+                  data-cuisine="Biryani"
+                >
+                  Biryani
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill selected"
+                  data-cuisine="North Indian"
+                >
+                  North Indian
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill"
+                  data-cuisine="Chinese"
+                >
+                  Chinese
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill"
+                  data-cuisine="Desserts"
+                >
+                  Desserts
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill"
+                  data-cuisine="South Indian"
+                >
+                  South Indian
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill"
+                  data-cuisine="Fast Food"
+                >
+                  Fast Food
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill"
+                  data-cuisine="Beverages"
+                >
+                  Beverages
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill"
+                  data-cuisine="Continental"
+                >
+                  Continental
+                </button>
+                <button
+                  type="button"
+                  class="cuisine-pill"
+                  data-cuisine="Kerala Cuisine"
+                >
+                  Kerala Cuisine
+                </button>
+              </div>
+              <span class="error-message" id="error-cuisine"
+                >Please select at least one cuisine type.</span
+              >
+            </div>
+
+            <!-- 5. Restaurant Address -->
+            <div class="form-group" id="group-address">
+              <label class="form-label" for="restaurant-address">
+                <span
+                  >Restaurant address<span class="required-star">*</span></span
+                >
+              </label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <i data-lucide="map-pin"></i>
+                </span>
+                <input
+                  type="text"
+                  id="restaurant-address"
+                  class="form-input has-icon-left"
+                  placeholder="Enter complete restaurant address"
+                  required
+                />
+              </div>
+              <span class="error-message"
+                >Please enter the complete street address.</span
+              >
+            </div>
+
+            <!-- 6. City & Pincode (2 columns) -->
+            <div class="form-row">
+              <div class="form-group" id="group-city">
+                <label class="form-label" for="restaurant-city">
+                  <span>City<span class="required-star">*</span></span>
+                </label>
+                <div class="input-wrapper">
+                  <select id="restaurant-city" class="form-select" required>
+                    <option value="Hyderabad" selected>Hyderabad</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi NCR">Delhi NCR</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Kochi">Kochi</option>
+                  </select>
+                </div>
+                <span class="error-message">Please select a city.</span>
+              </div>
+
+              <div class="form-group" id="group-pincode">
+                <label class="form-label" for="restaurant-pincode">
+                  <span>Pincode<span class="required-star">*</span></span>
+                </label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    id="restaurant-pincode"
+                    class="form-input"
+                    placeholder="500001"
+                    maxlength="6"
+                    required
+                  />
+                </div>
+                <span class="error-message"
+                  >Please enter a valid 6-digit Indian pincode.</span
+                >
+              </div>
+            </div>
+
+            <!-- 7. Opens At & Closes At (2 columns) -->
+            <div class="form-row">
+              <div class="form-group" id="group-opens-at">
+                <label class="form-label" for="restaurant-opens-at">
+                  <span>Opens at<span class="required-star">*</span></span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <i data-lucide="clock"></i>
+                  </span>
+                  <input
+                    type="text"
+                    id="restaurant-opens-at"
+                    class="form-input has-icon-left"
+                    placeholder="10:00 AM"
+                    value="10:00 AM"
+                    required
+                  />
+                </div>
+                <span class="error-message">Please enter opening time.</span>
+              </div>
+
+              <div class="form-group" id="group-closes-at">
+                <label class="form-label" for="restaurant-closes-at">
+                  <span>Closes at<span class="required-star">*</span></span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <i data-lucide="clock"></i>
+                  </span>
+                  <input
+                    type="text"
+                    id="restaurant-closes-at"
+                    class="form-input has-icon-left"
+                    placeholder="11:00 PM"
+                    value="11:00 PM"
+                    required
+                  />
+                </div>
+                <span class="error-message">Please enter closing time.</span>
+              </div>
+            </div>
+
+            <!-- Bottom Action Buttons -->
+            <div class="reg-actions-row">
+              <button type="button" id="btn-save-draft" class="btn btn-outline">
+                Save as draft
+              </button>
+
+              <button type="submit" id="btn-continue" class="btn btn-primary">
+                <span class="spinner"></span>
+                <span class="btn-text">Continue</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/register-step1.js"></script>
+  </body>
+</html>
