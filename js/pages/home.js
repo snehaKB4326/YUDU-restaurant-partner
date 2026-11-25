@@ -101,7 +101,7 @@
                     </div>
 
                     <!-- Rating -->
-                    <div class="stat-card">
+                    <div class="stat-card" id="home-stat-rating-card" title="View customer reviews and ratings" style="cursor: pointer;">
                         <div class="stat-top">
                             <span class="stat-title">Rating</span>
                             <div class="stat-icon-pill star-pill">
@@ -201,7 +201,7 @@
                     <div class="order-left-info">
                         <div class="customer-avatar-initials">${order.initials}</div>
                         <div class="order-id-customer">
-                            <div class="order-id-num">#${order.id}</div>
+                            <a href="#order-details?id=${order.id}" class="order-id-link" title="View order details"><strong class="order-id-num">#${order.id}</strong></a>
                             <div class="order-customer-items">${order.customer} · ${order.itemCount} items</div>
                         </div>
                     </div>
@@ -255,6 +255,14 @@
             });
         }
 
+        // Rating card click -> navigate to #reviews
+        const ratingCard = container.querySelector('#home-stat-rating-card');
+        if (ratingCard) {
+            ratingCard.addEventListener('click', () => {
+                location.hash = '#reviews';
+            });
+        }
+
         // Order Action buttons (Accept & Reject)
         const ordersList = container.querySelector('#home-orders-list');
         if (ordersList) {
@@ -279,13 +287,13 @@
                     return;
                 }
 
-                // If clicked on order card itself, show full order details modal
+                // If clicked on order card itself, navigate to order details page
                 const card = e.target.closest('.live-order-card');
                 if (card && !e.target.closest('button')) {
+                    if (e.target.closest('a')) return;
                     const orderId = card.getAttribute('data-order-id');
-                    const order = YUDUStore.getState().orders.find(o => o.id === orderId);
-                    if (order) {
-                        YUDUUI.openOrderDetailsModal(order);
+                    if (orderId) {
+                        location.hash = '#order-details?id=' + encodeURIComponent(orderId);
                     }
                 }
             });

@@ -482,7 +482,11 @@
         if (backBtn) {
             backBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                location.hash = '#orders';
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    location.hash = '#home';
+                }
             });
         }
 

@@ -427,6 +427,18 @@
     },
   ];
 
+  const ORDERS_SCHEMA_VERSION = 2;
+
+  function hoursAgoISO(hours) {
+    return new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+  }
+
+  function daysAgoISO(days, hour = 13, minute = 15) {
+    const d = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
+    d.setHours(hour, minute, 0, 0);
+    return d.toISOString();
+  }
+
   const defaultOrders = [
     {
       id: "YD-20481",
@@ -467,6 +479,10 @@
       },
       amount: 640,
       status: "new", // 'new', 'preparing', 'ready', 'completed', 'rejected'
+      acknowledged: false,
+      alarmExpiresAt: Date.now() + 30000,
+      alarmCompleted: false,
+      createdAt: hoursAgoISO(0.25),
       orderTime: "12:42 PM",
       readyIn: null,
       progress: 0,
@@ -520,6 +536,8 @@
       },
       amount: 420,
       status: "preparing",
+      acknowledged: false,
+      createdAt: hoursAgoISO(0.6),
       orderTime: "12:35 PM",
       readyIn: "8 min",
       progress: 60,
@@ -580,6 +598,8 @@
       },
       amount: 1120,
       status: "preparing",
+      acknowledged: false,
+      createdAt: daysAgoISO(1, 12, 28),
       orderTime: "12:28 PM",
       readyIn: "3 min",
       progress: 85,
@@ -632,6 +652,8 @@
       },
       amount: 510,
       status: "ready",
+      acknowledged: false,
+      createdAt: daysAgoISO(2, 12, 15),
       orderTime: "12:15 PM",
       readyIn: "Ready now",
       progress: 100,
@@ -672,6 +694,8 @@
       },
       amount: 870,
       status: "completed",
+      acknowledged: true,
+      createdAt: daysAgoISO(4, 11, 50),
       orderTime: "11:50 AM",
       readyIn: null,
       progress: 100,
@@ -716,6 +740,8 @@
       },
       amount: 200,
       status: "completed",
+      acknowledged: true,
+      createdAt: daysAgoISO(5, 11, 20),
       orderTime: "11:20 AM",
       readyIn: null,
       progress: 100,
@@ -732,6 +758,223 @@
         vehicle: "TVS Star · TS 09 KL 2345",
         eta: "Delivered",
         otp: "459",
+        status: "Handed to rider · Completed",
+      },
+    },
+    {
+      id: "YD-20441",
+      customer: "Meera Nair",
+      initials: "MN",
+      phone: "+91 98492 55104",
+      address: "102, Banjara Hills Road No. 12",
+      itemCount: 3,
+      items: [
+        { name: "Chicken Dum Biryani", qty: 2, price: 560, veg: false },
+        { name: "Double Ka Meetha", qty: 1, price: 140, veg: true },
+        { name: "Packaging & Taxes", qty: 1, price: 40, isFee: true },
+      ],
+      billDetails: { itemTotal: 700, packaging: 20, taxes: 20, deliveryFee: 0 },
+      amount: 740,
+      status: "completed",
+      acknowledged: true,
+      createdAt: daysAgoISO(9, 19, 30),
+      orderTime: "07:30 PM",
+      readyIn: null,
+      progress: 100,
+      rejectReason: null,
+      customerNotes: "Extra raita and mirchi salan.",
+      restaurantNotes: "Delivered cleanly.",
+      deliveryNotes: "Security gate drop-off.",
+      paymentMethod: "Paid Online (UPI)",
+      paymentStatus: "Paid",
+      txnId: "UPI/8829103847",
+      rider: {
+        name: "Rahul S.",
+        phone: "+91 98481 23456",
+        vehicle: "Hero Splendor · TS 09 EA 4521",
+        eta: "Delivered",
+        otp: "441",
+        status: "Handed to rider · Completed",
+      },
+    },
+    {
+      id: "YD-20432",
+      customer: "Arjun Reddy",
+      initials: "AR",
+      phone: "+91 97015 33920",
+      address: "Plot 44, Jubilee Hills Checkpost",
+      itemCount: 2,
+      items: [
+        { name: "Mutton Biryani", qty: 1, price: 360, veg: false },
+        { name: "Chicken 65", qty: 1, price: 230, veg: false },
+      ],
+      billDetails: { itemTotal: 590, packaging: 0, taxes: 0, deliveryFee: 0 },
+      amount: 590,
+      status: "completed",
+      acknowledged: true,
+      createdAt: daysAgoISO(14, 14, 10),
+      orderTime: "02:10 PM",
+      readyIn: null,
+      progress: 100,
+      rejectReason: null,
+      customerNotes: "Keep Chicken 65 crispy.",
+      restaurantNotes: "Delivered on schedule.",
+      deliveryNotes: "Call on arrival.",
+      paymentMethod: "Paid Online (Card)",
+      paymentStatus: "Paid",
+      txnId: "CC/7738291042",
+      rider: {
+        name: "Amit K.",
+        phone: "+91 98765 43210",
+        vehicle: "TVS Jupiter · TS 10 BC 7891",
+        eta: "Delivered",
+        otp: "432",
+        status: "Handed to rider · Completed",
+      },
+    },
+    {
+      id: "YD-20418",
+      customer: "Neha Kapoor",
+      initials: "NK",
+      phone: "+91 98664 12098",
+      address: "Flat 301, Madhapur Ayyappa Society",
+      itemCount: 2,
+      items: [
+        { name: "Paneer Tikka Biryani", qty: 1, price: 240, veg: true },
+        { name: "Paneer Butter Masala", qty: 1, price: 250, veg: true },
+      ],
+      billDetails: { itemTotal: 490, packaging: 0, taxes: 0, deliveryFee: 0 },
+      amount: 490,
+      status: "ready",
+      acknowledged: false,
+      createdAt: daysAgoISO(19, 20, 45),
+      orderTime: "08:45 PM",
+      readyIn: "Ready now",
+      progress: 100,
+      rejectReason: null,
+      customerNotes: "Mild spice preferred.",
+      restaurantNotes: "Ready at counter.",
+      deliveryNotes: "Tower B lobby.",
+      paymentMethod: "Paid Online (UPI)",
+      paymentStatus: "Paid",
+      txnId: "UPI/6619204811",
+      rider: {
+        name: "Anand M.",
+        phone: "+91 99887 65432",
+        vehicle: "Bajaj Pulsar · TS 08 FG 2341",
+        eta: "At restaurant",
+        otp: "418",
+        status: "Waiting at pickup counter",
+      },
+    },
+    {
+      id: "YD-20405",
+      customer: "Siddharth Varma",
+      initials: "SV",
+      phone: "+91 94901 77234",
+      address: "H.No 8-2-293, Panjagutta",
+      itemCount: 4,
+      items: [
+        { name: "Chicken Dum Biryani", qty: 2, price: 560, veg: false },
+        { name: "Apollo Fish", qty: 1, price: 290, veg: false },
+        {
+          name: "Fresh Lime Soda (Sweet & Salt)",
+          qty: 1,
+          price: 70,
+          veg: true,
+        },
+      ],
+      billDetails: { itemTotal: 920, packaging: 0, taxes: 0, deliveryFee: 0 },
+      amount: 920,
+      status: "completed",
+      acknowledged: true,
+      createdAt: daysAgoISO(23, 13, 25),
+      orderTime: "01:25 PM",
+      readyIn: null,
+      progress: 100,
+      rejectReason: null,
+      customerNotes: "Extra lemon wedges.",
+      restaurantNotes: "Delivered.",
+      deliveryNotes: "Leave with watchman.",
+      paymentMethod: "Paid Online (GPay)",
+      paymentStatus: "Paid",
+      txnId: "UPI/5501928374",
+      rider: {
+        name: "Vikram Singh",
+        phone: "+91 98765 43210",
+        vehicle: "Honda Activa · TS 09 AB 1234",
+        eta: "Delivered",
+        otp: "405",
+        status: "Handed to rider · Completed",
+      },
+    },
+    {
+      id: "YD-20391",
+      customer: "Lakshmi Devi",
+      initials: "LD",
+      phone: "+91 99480 61209",
+      address: "Street 2, Tarnaka, Hyderabad",
+      itemCount: 2,
+      items: [
+        { name: "Hyderabadi Veg Biryani", qty: 1, price: 220, veg: true },
+        { name: "Rasmalai (2 Pcs)", qty: 1, price: 120, veg: true },
+      ],
+      billDetails: { itemTotal: 340, packaging: 0, taxes: 0, deliveryFee: 0 },
+      amount: 340,
+      status: "completed",
+      acknowledged: true,
+      createdAt: daysAgoISO(27, 21, 5),
+      orderTime: "09:05 PM",
+      readyIn: null,
+      progress: 100,
+      rejectReason: null,
+      customerNotes: "Keep dessert chilled.",
+      restaurantNotes: "Delivered.",
+      deliveryNotes: "First floor left.",
+      paymentMethod: "Cash on Delivery",
+      paymentStatus: "Collected",
+      txnId: "COD-CASH",
+      rider: {
+        name: "K. Mahesh",
+        phone: "+91 99882 33412",
+        vehicle: "Hero Splendor · TS 10 CD 5678",
+        eta: "Delivered",
+        otp: "391",
+        status: "Handed to rider · Completed",
+      },
+    },
+    {
+      id: "YD-20350",
+      customer: "Rohan Das",
+      initials: "RD",
+      phone: "+91 98111 45678",
+      address: "Kacheguda Station Road",
+      itemCount: 2,
+      items: [
+        { name: "Mutton Biryani", qty: 1, price: 360, veg: false },
+        { name: "Double Ka Meetha", qty: 1, price: 140, veg: true },
+      ],
+      billDetails: { itemTotal: 500, packaging: 0, taxes: 0, deliveryFee: 0 },
+      amount: 500,
+      status: "completed",
+      acknowledged: true,
+      createdAt: daysAgoISO(35, 18, 40),
+      orderTime: "06:40 PM",
+      readyIn: null,
+      progress: 100,
+      rejectReason: null,
+      customerNotes: "Pack extra napkins.",
+      restaurantNotes: "Delivered.",
+      deliveryNotes: "Main entrance.",
+      paymentMethod: "Paid Online (UPI)",
+      paymentStatus: "Paid",
+      txnId: "UPI/4492817365",
+      rider: {
+        name: "Syed Arbaaz",
+        phone: "+91 99112 88473",
+        vehicle: "Honda Shine · TS 07 IJ 7890",
+        eta: "Delivered",
+        otp: "350",
         status: "Handed to rider · Completed",
       },
     },
@@ -902,9 +1145,11 @@
       id: "notif-1",
       type: "order-new",
       title: "New order #YD-20481 received",
-      desc: "Ravi Kumar ordered 3 items (₹640). Waiting for kitchen confirmation.",
+      desc: "Ravi Kumar ordered 3 items (₹640). Pending acceptance.",
       time: "2 mins ago",
       unread: true,
+      pendingAcceptance: true,
+      acknowledged: false,
       target: "#orders",
       targetId: "YD-20481",
     },
@@ -970,6 +1215,141 @@
     },
   ];
 
+  const defaultReviews = [
+    {
+      id: "REV-101",
+      customer: "Priya Sharma",
+      initials: "PS",
+      rating: 5,
+      date: "2 hours ago",
+      timestamp: "2026-11-25T09:20:00Z",
+      orderId: "YD-20481",
+      orderedItems: [
+        "Chicken Dum Biryani",
+        "Mirchi Ka Salan",
+        "Thums Up (250ml)",
+      ],
+      reviewText:
+        "The Chicken Dum Biryani was exceptionally flavorful and fresh! The rice was perfectly spiced and the chicken pieces were juicy and tender. Mirchi ka salan complemented it wonderfully. Hot delivery and spill-proof packing!",
+      tags: ["Authentic Flavor", "Hot & Fresh", "Super Packaging"],
+      ratingsDetail: { taste: 5, packaging: 5, delivery: 5 },
+      reply: {
+        from: "Biryani Factory",
+        date: "1 hour ago",
+        text: "Thank you so much Priya! We are thrilled to hear you loved the authentic dum style biryani and packaging. Looking forward to serving you again soon!",
+      },
+      likesCount: 12,
+    },
+    {
+      id: "REV-102",
+      customer: "Rohan Mehta",
+      initials: "RM",
+      rating: 5,
+      date: "Yesterday",
+      timestamp: "2026-11-24T18:40:00Z",
+      orderId: "YD-20476",
+      orderedItems: ["Special Mutton Biryani", "Raita"],
+      reviewText:
+        "Best Mutton Biryani in Hyderabad! Meat literally fell off the bone. Fragrant basmati rice with perfect ghee aroma. Worth every rupee.",
+      tags: ["Tender Meat", "Aromatic Rice", "Portion Size"],
+      ratingsDetail: { taste: 5, packaging: 5, delivery: 4 },
+      reply: {
+        from: "Biryani Factory",
+        date: "Yesterday",
+        text: "Glad you enjoyed our signature Mutton Biryani, Rohan! Your feedback means the world to our kitchen team.",
+      },
+      likesCount: 8,
+    },
+    {
+      id: "REV-103",
+      customer: "Ananya Reddy",
+      initials: "AR",
+      rating: 4,
+      date: "2 days ago",
+      timestamp: "2026-11-23T14:15:00Z",
+      orderId: "YD-20472",
+      orderedItems: ["Hyderabadi Veg Biryani", "Paneer Tikka"],
+      reviewText:
+        "Very good vegetarian biryani with rich flavors and fresh veggies. The paneer cubes were soft and nicely roasted. Deducting one star only because the delivery partner was delayed by 10 mins.",
+      tags: ["Fresh Veggies", "Soft Paneer", "Delayed Delivery"],
+      ratingsDetail: { taste: 5, packaging: 5, delivery: 3 },
+      reply: null,
+      likesCount: 5,
+    },
+    {
+      id: "REV-104",
+      customer: "Vikram Singh",
+      initials: "VS",
+      rating: 5,
+      date: "3 days ago",
+      timestamp: "2026-11-22T20:30:00Z",
+      orderId: "YD-20468",
+      orderedItems: ["Chicken 65 Biryani", "Double Ka Meetha"],
+      reviewText:
+        "The Chicken 65 on top was crispy on the outside and juicy inside. Double Ka Meetha dessert was rich, creamy and not overly sweet. Complete royal feast!",
+      tags: ["Crispy Chicken 65", "Delicious Dessert", "Generous Portion"],
+      ratingsDetail: { taste: 5, packaging: 5, delivery: 5 },
+      reply: null,
+      likesCount: 15,
+    },
+    {
+      id: "REV-105",
+      customer: "Sneha Patel",
+      initials: "SP",
+      rating: 4,
+      date: "4 days ago",
+      timestamp: "2026-11-21T13:00:00Z",
+      orderId: "YD-20455",
+      orderedItems: ["Paneer Biryani", "Gulab Jamun (2 pcs)"],
+      reviewText:
+        "Tastes just like home-made authentic biryani. Generous portion for 2 people. Gulab jamun was warm and soft. Great hygienic packaging.",
+      tags: ["Great Portion", "Hygienic Packing", "Warm Dessert"],
+      ratingsDetail: { taste: 4, packaging: 5, delivery: 5 },
+      reply: {
+        from: "Biryani Factory",
+        date: "4 days ago",
+        text: "Thank you Sneha! Delighted to know you and your family enjoyed the meal. Hope to see your order again soon!",
+      },
+      likesCount: 6,
+    },
+    {
+      id: "REV-106",
+      customer: "Mohammed Irfan",
+      initials: "MI",
+      rating: 3,
+      date: "5 days ago",
+      timestamp: "2026-11-20T21:10:00Z",
+      orderId: "YD-20442",
+      orderedItems: ["Egg Biryani", "Mirchi Ka Salan"],
+      reviewText:
+        "Food was good overall, but a bit more spicy than expected. Would appreciate an option to select spice levels (Mild/Medium/Spicy) when ordering.",
+      tags: ["Too Spicy", "Good Portion"],
+      ratingsDetail: { taste: 3, packaging: 4, delivery: 4 },
+      reply: null,
+      likesCount: 3,
+    },
+    {
+      id: "REV-107",
+      customer: "Kavita Krishnan",
+      initials: "KK",
+      rating: 5,
+      date: "6 days ago",
+      timestamp: "2026-11-19T12:45:00Z",
+      orderId: "YD-20430",
+      orderedItems: ["Chicken Dum Biryani (Family Pack)", "Raita"],
+      reviewText:
+        "Ordered for our Sunday family lunch. Everyone loved it! Arrived piping hot with sealed safety containers. Highly recommended!",
+      tags: ["Family Favorite", "Safety Sealed", "Prompt Delivery"],
+      ratingsDetail: { taste: 5, packaging: 5, delivery: 5 },
+      reply: {
+        from: "Biryani Factory",
+        date: "6 days ago",
+        text: "Thank you Kavita! Serving family gatherings brings us utmost joy. Thank you for making us part of your Sunday feast!",
+      },
+      likesCount: 19,
+    },
+  ];
+
   // Load or initialize store with multi-version fallback and dish reconciliation
   function loadState() {
     try {
@@ -1005,7 +1385,12 @@
         // Normalize categories & ensure desserts & dal tadka have real photographic images
         loadedDishes.forEach((d) => {
           const def = defaultMap[d.id];
-          if (def && (def.category === "desserts" || def.id === "dish-11" || def.id === "dish-5")) {
+          if (
+            def &&
+            (def.category === "desserts" ||
+              def.id === "dish-11" ||
+              def.id === "dish-5")
+          ) {
             if (def.category === "desserts") d.category = "desserts";
             d.image = def.image;
             d.fallbackImage = def.fallbackImage;
@@ -1037,6 +1422,68 @@
             if (!o.paymentMethod) o.paymentMethod = def.paymentMethod;
             if (!o.paymentStatus) o.paymentStatus = def.paymentStatus;
             if (!o.billDetails) o.billDetails = def.billDetails;
+            if (!o.createdAt) o.createdAt = def.createdAt;
+            if (typeof o.acknowledged !== "boolean") {
+              o.acknowledged =
+                o.status === "completed" || o.status === "rejected"
+                  ? true
+                  : Boolean(def.acknowledged);
+            }
+          } else {
+            if (!o.createdAt) o.createdAt = new Date().toISOString();
+            if (typeof o.acknowledged !== "boolean") {
+              o.acknowledged =
+                o.status === "completed" || o.status === "rejected";
+            }
+          }
+          if (o.status === "new" && !o.acknowledged) {
+            if (typeof o.alarmCompleted !== "boolean") {
+              o.alarmCompleted = false;
+            }
+            if (!o.alarmExpiresAt && !o.alarmCompleted) {
+              o.alarmExpiresAt = Date.now() + 30000;
+            } else if (
+              o.alarmExpiresAt &&
+              Date.now() >= Number(o.alarmExpiresAt)
+            ) {
+              o.alarmCompleted = true;
+            }
+          } else {
+            o.alarmCompleted = true;
+          }
+        });
+
+        // One-time schema migration to ensure historical 8-30 day orders exist for date range filtering
+        if (
+          !parsed.ordersSchemaVersion ||
+          parsed.ordersSchemaVersion < ORDERS_SCHEMA_VERSION
+        ) {
+          const existingOrderIds = new Set(loadedOrders.map((o) => o.id));
+          defaultOrders.forEach((defOrder) => {
+            if (!existingOrderIds.has(defOrder.id)) {
+              loadedOrders.push(JSON.parse(JSON.stringify(defOrder)));
+            }
+          });
+        }
+
+        const loadedNotifications =
+          parsed.notifications && parsed.notifications.length > 0
+            ? parsed.notifications
+            : [...defaultNotificationsList];
+        const orderById = new Map(
+          loadedOrders.map((o) => [String(o.id).toLowerCase(), o]),
+        );
+        loadedNotifications.forEach((n) => {
+          if (n.type === "order-new" && n.targetId) {
+            const ord = orderById.get(String(n.targetId).toLowerCase());
+            if (ord && ord.status === "new" && !ord.acknowledged) {
+              n.pendingAcceptance = true;
+              n.acknowledged = false;
+              n.unread = true;
+            } else if (ord) {
+              n.pendingAcceptance = false;
+              n.acknowledged = true;
+            }
           }
         });
 
@@ -1063,6 +1510,7 @@
         }
 
         return {
+          ordersSchemaVersion: ORDERS_SCHEMA_VERSION,
           restaurant: loadedRestaurant,
           dishes: loadedDishes,
           orders: loadedOrders,
@@ -1070,33 +1518,48 @@
             parsed.settlements && parsed.settlements.length > 0
               ? parsed.settlements
               : defaultSettlements,
-          notifications:
-            parsed.notifications && parsed.notifications.length > 0
-              ? parsed.notifications
-              : defaultNotificationsList,
+          notifications: loadedNotifications,
+          reviews:
+            parsed.reviews && parsed.reviews.length > 0
+              ? parsed.reviews
+              : defaultReviews,
         };
       }
     } catch (e) {
       console.error("Failed to load state from localStorage", e);
     }
     return {
+      ordersSchemaVersion: ORDERS_SCHEMA_VERSION,
       restaurant: defaultRestaurant,
       dishes: [...defaultDishes],
       orders: defaultOrders,
       settlements: defaultSettlements,
       notifications: defaultNotificationsList,
+      reviews: defaultReviews,
     };
   }
 
   const state = loadState();
   saveState(); // Immediately persist verified state
 
-  function saveState() {
+  let orderBroadcastChannel = null;
+  try {
+    orderBroadcastChannel = new BroadcastChannel("yudu_orders_channel");
+  } catch (e) {}
+
+  function saveState(broadcastOrders = false) {
     try {
+      state.ordersSchemaVersion = ORDERS_SCHEMA_VERSION;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       window.dispatchEvent(
         new CustomEvent("yudu-data-changed", { detail: state }),
       );
+      if (broadcastOrders && orderBroadcastChannel) {
+        orderBroadcastChannel.postMessage({
+          type: "orders-updated",
+          ts: Date.now(),
+        });
+      }
     } catch (e) {
       console.error("Failed to save state to localStorage", e);
     }
@@ -1441,8 +1904,24 @@
       const order = state.orders.find((o) => o.id.toLowerCase() === cleanId);
       if (order) {
         order.status = "preparing";
+        order.acknowledged = true;
+        order.alarmCompleted = true;
+        if (!order.acknowledgedAt) {
+          order.acknowledgedAt = new Date().toISOString();
+        }
         order.readyIn = `Ready in ${prepTimeMinutes} min`;
         order.progress = 35;
+        state.notifications.forEach((n) => {
+          if (
+            n.type === "order-new" &&
+            n.targetId &&
+            n.targetId.toLowerCase() === order.id.toLowerCase()
+          ) {
+            n.unread = false;
+            n.pendingAcceptance = false;
+            n.acknowledged = true;
+          }
+        });
         if (partner) {
           order.rider = {
             name: partner.name,
@@ -1474,10 +1953,223 @@
           target: "#order-details?id=" + order.id,
           targetId: order.id,
         });
-        saveState();
+        saveState(true);
         return order;
       }
       return null;
+    },
+
+    acknowledgeOrder: (orderId) => {
+      const cleanId = String(orderId).replace(/^#/, "").trim().toLowerCase();
+      const order = state.orders.find((o) => o.id.toLowerCase() === cleanId);
+      if (!order || order.acknowledged) return null;
+
+      order.acknowledged = true;
+      order.acknowledgedAt = new Date().toISOString();
+      order.alarmCompleted = true;
+
+      state.notifications.forEach((n) => {
+        if (
+          n.type === "order-new" &&
+          n.targetId &&
+          n.targetId.toLowerCase() === order.id.toLowerCase()
+        ) {
+          n.unread = false;
+          n.pendingAcceptance = false;
+          n.acknowledged = true;
+          n.desc = `${order.customer} ordered ${order.itemCount} items (₹${order.amount.toLocaleString()}). Accepted by restaurant partner.`;
+        }
+      });
+
+      saveState(true);
+      return order;
+    },
+
+    markOrderAlarmCompleted: (orderId) => {
+      const cleanId = String(orderId).replace(/^#/, "").trim().toLowerCase();
+      const order = state.orders.find((o) => o.id.toLowerCase() === cleanId);
+      if (!order || order.alarmCompleted) return null;
+
+      order.alarmCompleted = true;
+      saveState(true);
+      return order;
+    },
+
+    getPendingAcceptanceOrders: () => {
+      return state.orders.filter((o) => o.status === "new" && !o.acknowledged);
+    },
+
+    getPendingAcceptanceCount: () => {
+      return state.orders.filter((o) => o.status === "new" && !o.acknowledged)
+        .length;
+    },
+
+    addIncomingOrder: (customOrder = null) => {
+      const sampleOrders = [
+        {
+          customer: "Aarav Kulkarni",
+          initials: "AK",
+          phone: "+91 98495 10293",
+          address: "Flat 205, Cyber Meadows, Kondapur",
+          items: [
+            { name: "Chicken Dum Biryani", qty: 1, price: 280, veg: false },
+            { name: "Chicken 65", qty: 1, price: 230, veg: false },
+            { name: "Packaging & Taxes", qty: 1, price: 45, isFee: true },
+          ],
+          amount: 555,
+          customerNotes: "Extra spicy dum biryani with crispy Chicken 65.",
+        },
+        {
+          customer: "Divya Menon",
+          initials: "DM",
+          phone: "+91 97012 44810",
+          address: "14-2, Somajiguda Circle, Hyderabad",
+          items: [
+            { name: "Paneer Tikka Biryani", qty: 2, price: 480, veg: true },
+            { name: "Gulab Jamun (2 Pcs)", qty: 1, price: 90, veg: true },
+            { name: "Packaging & Taxes", qty: 1, price: 40, isFee: true },
+          ],
+          amount: 610,
+          customerNotes: "Strictly vegetarian packing. Please add extra raita.",
+        },
+        {
+          customer: "Harsha Vardhan",
+          initials: "HV",
+          phone: "+91 99855 77102",
+          address: "H.No 6-3-88, Begumpet Main Road",
+          items: [
+            { name: "Mutton Biryani", qty: 1, price: 360, veg: false },
+            { name: "Hyderabadi Irani Chai", qty: 2, price: 100, veg: true },
+            { name: "Packaging & Taxes", qty: 1, price: 40, isFee: true },
+          ],
+          amount: 500,
+          customerNotes: "Keep Irani chai hot in flask pouch.",
+        },
+      ];
+
+      const maxNum = state.orders.reduce((max, o) => {
+        const m = String(o.id).match(/\d+/);
+        const n = m ? parseInt(m[0], 10) : 20481;
+        return n > max ? n : max;
+      }, 20481);
+
+      const template =
+        customOrder || sampleOrders[state.orders.length % sampleOrders.length];
+      const now = new Date();
+      const orderId = (customOrder && customOrder.id) || `YD-${maxNum + 1}`;
+      const formattedTime = now.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      });
+
+      const foodItems = (template.items || []).filter((i) => !i.isFee);
+      const itemCount =
+        (customOrder && customOrder.itemCount) ||
+        foodItems.reduce((sum, i) => sum + (i.qty || 1), 0) ||
+        1;
+
+      const newOrder = {
+        id: orderId,
+        customer: template.customer || "Walk-in Customer",
+        initials:
+          template.initials ||
+          (template.customer || "WC")
+            .split(" ")
+            .map((p) => p[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase(),
+        phone: template.phone || "+91 98480 00000",
+        address: template.address || "Hyderabad City Center",
+        itemCount,
+        items: template.items || [
+          { name: "Chicken Dum Biryani", qty: 1, price: 280, veg: false },
+        ],
+        billDetails: template.billDetails || {
+          itemTotal: (template.amount || 320) - 40,
+          packaging: 20,
+          taxes: 20,
+          deliveryFee: 0,
+        },
+        amount: template.amount || 320,
+        status: "new",
+        acknowledged: false,
+        alarmExpiresAt: now.getTime() + 30000,
+        alarmCompleted: false,
+        createdAt: now.toISOString(),
+        orderTime: formattedTime,
+        readyIn: null,
+        progress: 0,
+        rejectReason: null,
+        customerNotes:
+          template.customerNotes || "Please prepare fresh and pack securely.",
+        restaurantNotes: "Incoming live order waiting confirmation.",
+        deliveryNotes: "Call upon arrival.",
+        paymentMethod: template.paymentMethod || "Paid Online (UPI)",
+        paymentStatus: "Paid",
+        txnId: "UPI/" + String(Date.now()).slice(-10),
+        rider: template.rider || {
+          name: "Rahul S.",
+          initials: "RS",
+          phone: "+91 98481 23456",
+          vehicle: "Hero Splendor · TS 09 EA 4521",
+          eta: "Arriving in ~4 min",
+          otp: orderId.slice(-3),
+          status: "Pending restaurant accept",
+        },
+      };
+
+      state.orders.unshift(newOrder);
+      state.notifications.unshift({
+        id: "notif-" + Date.now() + "-" + Math.floor(Math.random() * 1000),
+        type: "order-new",
+        title: `New order #${newOrder.id} received`,
+        desc: `${newOrder.customer} ordered ${newOrder.itemCount} items (₹${newOrder.amount.toLocaleString()}). Pending acceptance.`,
+        time: "Just now",
+        unread: true,
+        pendingAcceptance: true,
+        acknowledged: false,
+        target: "#orders",
+        targetId: newOrder.id,
+      });
+
+      saveState(true);
+      window.dispatchEvent(
+        new CustomEvent("yudu-new-order", { detail: newOrder }),
+      );
+      return newOrder;
+    },
+
+    syncOrdersFromStorage: () => {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return false;
+        const parsed = JSON.parse(raw);
+        if (!parsed || !Array.isArray(parsed.orders)) return false;
+
+        const prevOrderIds = new Set(state.orders.map((o) => o.id));
+        const newlyArrived = parsed.orders.filter(
+          (o) =>
+            !prevOrderIds.has(o.id) && o.status === "new" && !o.acknowledged,
+        );
+
+        state.orders = parsed.orders;
+        if (Array.isArray(parsed.notifications)) {
+          state.notifications = parsed.notifications;
+        }
+        window.dispatchEvent(
+          new CustomEvent("yudu-data-changed", { detail: state }),
+        );
+        newlyArrived.forEach((order) => {
+          window.dispatchEvent(
+            new CustomEvent("yudu-new-order", { detail: order }),
+          );
+        });
+        return true;
+      } catch (e) {
+        return false;
+      }
     },
 
     rejectOrder: (orderId, reason) => {
@@ -1485,7 +2177,19 @@
       const order = state.orders.find((o) => o.id.toLowerCase() === cleanId);
       if (order) {
         order.status = "rejected";
+        order.alarmCompleted = true;
         order.rejectReason = reason || "Declined by restaurant";
+        state.notifications.forEach((n) => {
+          if (
+            n.type === "order-new" &&
+            n.targetId &&
+            n.targetId.toLowerCase() === order.id.toLowerCase()
+          ) {
+            n.unread = false;
+            n.pendingAcceptance = false;
+            n.acknowledged = true;
+          }
+        });
         state.notifications.unshift({
           id: "notif-" + Date.now(),
           type: "order-cancelled",
@@ -1496,7 +2200,7 @@
           target: "#order-details?id=" + order.id,
           targetId: order.id,
         });
-        saveState();
+        saveState(true);
         return order;
       }
       return null;
@@ -1526,7 +2230,7 @@
           order.readyIn = "Handed to rider";
           if (order.rider) order.rider.status = "Out for delivery / Delivered";
         }
-        saveState();
+        saveState(true);
         return order;
       }
       return null;
@@ -1607,13 +2311,19 @@
     markNotificationRead: (id) => {
       const notif = state.notifications.find((n) => n.id === id);
       if (notif) {
-        notif.unread = false;
+        if (!notif.pendingAcceptance) {
+          notif.unread = false;
+        }
         saveState();
       }
     },
 
     markAllNotificationsRead: () => {
-      state.notifications.forEach((n) => (n.unread = false));
+      state.notifications.forEach((n) => {
+        if (!n.pendingAcceptance) {
+          n.unread = false;
+        }
+      });
       saveState();
     },
 
@@ -1622,15 +2332,52 @@
       saveState();
     },
 
+    // Reviews Management
+    getReviews: () => state.reviews || defaultReviews,
+
+    addReviewReply: (reviewId, replyText) => {
+      if (!reviewId || !replyText) return false;
+      const review = (state.reviews || []).find((r) => r.id === reviewId);
+      if (review) {
+        review.reply = {
+          from:
+            (state.restaurant && state.restaurant.name) || "Biryani Factory",
+          date: "Just now",
+          text: replyText.trim(),
+        };
+        saveState();
+        return true;
+      }
+      return false;
+    },
+
+    deleteReviewReply: (reviewId) => {
+      if (!reviewId) return false;
+      const review = (state.reviews || []).find((r) => r.id === reviewId);
+      if (review) {
+        review.reply = null;
+        saveState();
+        return true;
+      }
+      return false;
+    },
+
     // Reset to initial demo data
     resetToDefaults: () => {
       state.restaurant = JSON.parse(JSON.stringify(defaultRestaurant));
       state.dishes = JSON.parse(JSON.stringify(defaultDishes));
       state.orders = JSON.parse(JSON.stringify(defaultOrders));
+      state.orders.forEach((o) => {
+        if (o.status === "new" && !o.acknowledged) {
+          o.alarmExpiresAt = Date.now() + 30000;
+          o.alarmCompleted = false;
+        }
+      });
       state.settlements = JSON.parse(JSON.stringify(defaultSettlements));
       state.notifications = JSON.parse(
         JSON.stringify(defaultNotificationsList),
       );
+      state.reviews = JSON.parse(JSON.stringify(defaultReviews));
       saveState();
     },
   };

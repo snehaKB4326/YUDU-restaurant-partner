@@ -25,6 +25,10 @@
       title: "Settlements & Earnings | YUDU Partner",
       render: window.renderEarningsPage,
     },
+    "#reviews": {
+      title: "Customer Reviews & Ratings | YUDU Partner",
+      render: window.renderReviewsPage,
+    },
     "#restaurant": {
       title: "Restaurant Overview | YUDU Partner",
       render: window.renderRestaurantPage,
