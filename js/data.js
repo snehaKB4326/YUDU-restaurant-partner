@@ -1145,7 +1145,7 @@
       id: "notif-1",
       type: "order-new",
       title: "New order #YD-20481 received",
-      desc: "Ravi Kumar ordered 3 items (₹640). Pending acceptance.",
+      desc: "Ravi Kumar ordered 3 items (₹640). Waiting for kitchen confirmation.",
       time: "2 mins ago",
       unread: true,
       pendingAcceptance: true,
@@ -2311,18 +2311,14 @@
     markNotificationRead: (id) => {
       const notif = state.notifications.find((n) => n.id === id);
       if (notif) {
-        if (!notif.pendingAcceptance) {
-          notif.unread = false;
-        }
+        notif.unread = false;
         saveState();
       }
     },
 
     markAllNotificationsRead: () => {
       state.notifications.forEach((n) => {
-        if (!n.pendingAcceptance) {
-          n.unread = false;
-        }
+        n.unread = false;
       });
       saveState();
     },

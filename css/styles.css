@@ -3984,6 +3984,7 @@ textarea.form-input {
   cursor: pointer;
   transition: background 0.15s ease;
   position: relative;
+  background-color: #ffffff;
 }
 
 .notif-item:hover {
@@ -3991,19 +3992,11 @@ textarea.form-input {
 }
 
 .notif-item.unread {
-  background-color: #fbf9ff;
+  background-color: #ffffff;
 }
 
 .notif-item.unread::before {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--primary-purple);
+  display: none;
 }
 
 .notif-item-icon-badge {
@@ -6358,27 +6351,9 @@ textarea.form-input {
 }
 
 .notif-status-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 7px;
-  border-radius: var(--radius-full);
-  font-size: 10px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.notif-status-tag.pending {
-  background-color: #fef3c7;
-  color: #b45309;
-  border: 1px solid #fde68a;
-}
-
-.notif-status-tag.accepted {
-  background-color: #dcfce7;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
+  display: none !important;
 }
 
 .notif-item.notif-item-pending {
-  background-color: #fffdf5;
+  background-color: #ffffff;
 }

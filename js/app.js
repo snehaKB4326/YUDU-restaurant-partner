@@ -224,10 +224,7 @@
       : 0;
 
     if (countChip) {
-      countChip.textContent =
-        pendingCount > 0
-          ? `${unreadCount} new · ${pendingCount} pending`
-          : `${unreadCount} new`;
+      countChip.textContent = `${unreadCount} new`;
     }
 
     if (!notifs || notifs.length === 0) {
@@ -263,29 +260,20 @@
           iconSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
         }
 
-        const isPendingOrder = Boolean(n.pendingAcceptance);
-        const isAckedOrder = n.type === "order-new" && Boolean(n.acknowledged);
-        const statusTag = isPendingOrder
-          ? `<span class="notif-status-tag pending">Pending Acceptance</span>`
-          : isAckedOrder
-            ? `<span class="notif-status-tag accepted">Accepted</span>`
-            : "";
-
         return `
-                <div class="notif-item ${n.unread || isPendingOrder ? "unread" : ""} ${isPendingOrder ? "notif-item-pending" : ""}" data-notif-id="${n.id}" data-target="${n.target || ""}" data-target-id="${n.targetId || ""}">
+                <div class="notif-item ${n.unread ? "unread" : ""}" data-notif-id="${n.id}" data-target="${n.target || ""}" data-target-id="${n.targetId || ""}">
                     <div class="notif-item-icon-badge ${typeClass}">
                         ${iconSvg}
                     </div>
                     <div class="notif-item-content">
                         <div class="notif-item-title-row">
                             <span class="notif-item-title">${n.title}</span>
-                            ${statusTag}
                         </div>
                         <div class="notif-item-desc">${n.desc || ""}</div>
                         <div class="notif-item-time">${n.time}</div>
                     </div>
                     ${
-                      n.unread && !isPendingOrder
+                      n.unread
                         ? `
                         <button class="notif-item-read-check" data-mark-id="${n.id}" title="Mark as read">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>

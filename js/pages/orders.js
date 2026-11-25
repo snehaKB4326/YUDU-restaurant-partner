@@ -350,10 +350,6 @@
             : `<span class="order-status-badge new-badge"><span class="badge-dot"></span>New · Pending Acceptance</span>`;
           actionButtons = `
                     ${renderEyeAckButton(order)}
-                    <button class="btn btn-sm btn-accept" data-order-accept="${order.id}">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Accept
-                    </button>
                     <button class="btn btn-sm btn-reject" data-order-reject="${order.id}">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                         Reject
