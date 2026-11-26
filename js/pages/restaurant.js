@@ -4,18 +4,16 @@
  */
 
 (function () {
-    function renderRestaurant(container) {
-        const state = YUDUStore.getState();
-        const r = state.restaurant;
+  function renderRestaurant(container) {
+    const state = YUDUStore.getState();
+    const r = state.restaurant;
 
-        container.innerHTML = `
+    container.innerHTML = `
             <div class="page-container animate-fade-in restaurant-overview-page">
                 <!-- Top Header with Back button -->
                 <header class="page-header">
                     <div class="header-titles with-back">
-                        <button class="back-nav-btn" id="restaurant-back-btn" title="Back to Dashboard">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
+                        
                         <div>
                             <h1 class="page-title">Restaurant Overview</h1>
                             <p class="page-subtitle">Performance summary for ${r.name}.</p>
@@ -32,7 +30,7 @@
                         </button>
                         <button class="icon-btn" id="notif-bell-btn-2" title="Notifications">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                            <span class="notif-badge-pill ${state.notifications.filter(n => n.unread).length > 0 ? 'active' : ''}">${state.notifications.filter(n => n.unread).length}</span>
+                            <span class="notif-badge-pill ${state.notifications.filter((n) => n.unread).length > 0 ? "active" : ""}">${state.notifications.filter((n) => n.unread).length}</span>
                         </button>
                     </div>
                 </header>
@@ -52,8 +50,8 @@
                                 <span class="banner-badge verified-badge">
                                     <span class="badge-dot-sm"></span> Verified
                                 </span>
-                                <span class="banner-badge open-badge ${r.isOnline ? '' : 'paused'}">
-                                    ${r.isOnline ? 'Open now' : 'Paused'}
+                                <span class="banner-badge open-badge ${r.isOnline ? "" : "paused"}">
+                                    ${r.isOnline ? "Open now" : "Paused"}
                                 </span>
                             </div>
                         </div>
@@ -110,29 +108,33 @@
                                     </svg>
                                     <h3 class="control-card-title">Store Status</h3>
                                 </div>
-                                <span class="store-status-pill ${r.isOnline ? 'open' : 'paused'}">
+                                <span class="store-status-pill ${r.isOnline ? "open" : "paused"}">
                                     <span class="badge-dot-sm"></span>
-                                    <span>${r.isOnline ? 'Open' : 'Paused'}</span>
+                                    <span>${r.isOnline ? "Open" : "Paused"}</span>
                                 </span>
                             </div>
                             <p class="control-card-desc">
-                                ${r.isOnline ? 'Your restaurant is accepting orders' : 'Your restaurant is currently paused'}
+                                ${r.isOnline ? "Your restaurant is accepting orders" : "Your restaurant is currently paused"}
                             </p>
                         </div>
 
-                        <button class="btn-pause-orders-action ${r.isOnline ? '' : 'paused-mode'}" id="restaurant-toggle-status-btn">
-                            ${r.isOnline ? `
+                        <button class="btn-pause-orders-action ${r.isOnline ? "" : "paused-mode"}" id="restaurant-toggle-status-btn">
+                            ${
+                              r.isOnline
+                                ? `
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                                     <rect x="6" y="4" width="4" height="16" rx="1"></rect>
                                     <rect x="14" y="4" width="4" height="16" rx="1"></rect>
                                 </svg>
                                 <span>Pause Orders</span>
-                            ` : `
+                            `
+                                : `
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                                 </svg>
                                 <span>Open Store</span>
-                            `}
+                            `
+                            }
                         </button>
                     </div>
 
@@ -162,12 +164,12 @@
                             <div class="schedule-line-row">
                                 <span class="sched-days">Mon – Fri</span>
                                 <span class="sched-colon">:</span>
-                                <span class="sched-hours">${r.businessHours.weekdayHours || '09:00 AM - 10:00 PM'}</span>
+                                <span class="sched-hours">${r.businessHours.weekdayHours || "09:00 AM - 10:00 PM"}</span>
                             </div>
                             <div class="schedule-line-row">
                                 <span class="sched-days">Sat – Sun</span>
                                 <span class="sched-colon">:</span>
-                                <span class="sched-hours">${r.businessHours.weekendHours || '10:00 AM - 11:00 PM'}</span>
+                                <span class="sched-hours">${r.businessHours.weekendHours || "10:00 AM - 11:00 PM"}</span>
                             </div>
                         </div>
                     </div>
@@ -178,8 +180,11 @@
                     <!-- Left: Orders This Week Bar Chart -->
                     <div class="chart-section-card">
                         <div class="section-header-row">
-                            <h2 class="section-title">Orders this week</h2>
-                            <span class="badge-pill light-purple">Last 7 days</span>
+                            <h2 class="section-title" id="overview-chart-title">Orders this week</h2>
+                            <div class="chart-range-toggle" id="overview-chart-range-toggle">
+                                <button class="chart-range-btn active" data-range="7">Last 7 days</button>
+                                <button class="chart-range-btn" data-range="30">Last 30 days</button>
+                            </div>
                         </div>
                         <div id="overview-weekly-chart" class="chart-container"></div>
                     </div>
@@ -203,12 +208,14 @@
             </div>
         `;
 
-        // Attach events
-        attachRestaurantEvents(container);
-    }
+    // Attach events
+    attachRestaurantEvents(container);
+  }
 
-    function renderTopSellingItems(items) {
-        return items.map((item) => `
+  function renderTopSellingItems(items) {
+    return items
+      .map(
+        (item) => `
             <div class="top-selling-row">
                 <div class="rank-circle">${item.rank}</div>
                 <div class="top-selling-info">
@@ -217,118 +224,165 @@
                 </div>
                 <div class="top-selling-rev">${item.revenue}</div>
             </div>
-        `).join('');
+        `,
+      )
+      .join("");
+  }
+
+  function attachRestaurantEvents(container) {
+    const state = YUDUStore.getState();
+    const r = state.restaurant;
+
+    // Back button -> #home
+    const backBtn = container.querySelector("#restaurant-back-btn");
+    if (backBtn) {
+      backBtn.addEventListener("click", () => {
+        location.hash = "#home";
+      });
     }
 
-    function attachRestaurantEvents(container) {
-        const state = YUDUStore.getState();
-        const r = state.restaurant;
-
-        // Back button -> #home
-        const backBtn = container.querySelector('#restaurant-back-btn');
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                location.hash = '#home';
-            });
-        }
-
-        // Export report
-        const exportBtn = container.querySelector('#overview-export-btn');
-        if (exportBtn) {
-            exportBtn.addEventListener('click', () => {
-                YUDUUI.exportWeeklyOrdersReport();
-            });
-        }
-
-        // Toggle Store Status (Open / Pause Orders)
-        const toggleStatusBtn = container.querySelector('#restaurant-toggle-status-btn');
-        if (toggleStatusBtn) {
-            toggleStatusBtn.addEventListener('click', () => {
-                const willBeOnline = !r.isOnline;
-                YUDUStore.setRestaurantOnline(willBeOnline);
-                if (willBeOnline) {
-                    YUDUUI.showToast('Store is now OPEN and accepting orders.', 'success');
-                } else {
-                    YUDUUI.showToast('Store orders PAUSED. Inflow temporarily stopped.', 'warning');
-                }
-                renderRestaurant(container);
-            });
-        }
-
-        // Edit Hours button -> opens Business Hours Modal
-        const editHoursBtn = container.querySelector('#restaurant-edit-hours-btn');
-        if (editHoursBtn) {
-            editHoursBtn.addEventListener('click', () => {
-                YUDUUI.openBusinessHoursModal(() => {
-                    renderRestaurant(container);
-                });
-            });
-        }
-
-        // Render weekly chart
-        YUDUUI.renderWeeklyBarChart('overview-weekly-chart', { height: 210 });
-
-        // Dynamic Live-Sync for Application Status changes made by Admin Dashboard
-        function updateAppStatusSection() {
-            const mount = container.querySelector('#application-status-mount');
-            if (mount) {
-                mount.innerHTML = renderApplicationStatusSectionHtml();
-            }
-        }
-
-        window.addEventListener('yudu-application-status-changed', updateAppStatusSection);
-
-        const appStorageHandler = (e) => {
-            if (e.key === 'yudu_admin_data_v2' || 
-                e.key === 'yudu_admin_data' || 
-                e.key === 'yudu_restaurant_application' || 
-                e.key === 'yudu_application_status' || 
-                e.key === 'yudu_partner_registration') {
-                
-                YUDUStore.syncApplicationStatusFromAdmin();
-                updateAppStatusSection();
-            }
-        };
-        window.addEventListener('storage', appStorageHandler);
-
-        try {
-            const appChannel = new BroadcastChannel('yudu_application_channel');
-            appChannel.onmessage = () => {
-                YUDUStore.syncApplicationStatusFromAdmin();
-                updateAppStatusSection();
-            };
-        } catch (e) {}
+    // Export report
+    const exportBtn = container.querySelector("#overview-export-btn");
+    if (exportBtn) {
+      exportBtn.addEventListener("click", () => {
+        YUDUUI.exportWeeklyOrdersReport();
+      });
     }
 
-    function renderApplicationStatusSectionHtml() {
-        const appData = YUDUStore.getApplicationData();
-        const status = appData.status || 'Under Review';
-        const r = YUDUStore.getState().restaurant;
-
-        const isPending = status === 'Pending';
-        const isUnderReview = status === 'Under Review';
-        const isApproved = status === 'Approved';
-        const isRejected = status === 'Rejected';
-
-        let badgeClass = 'badge-under-review';
-        let badgeLabel = 'Under Review';
-
-        if (isApproved) {
-            badgeClass = 'badge-approved';
-            badgeLabel = 'Approved';
-        } else if (isPending) {
-            badgeClass = 'badge-pending';
-            badgeLabel = 'Pending';
-        } else if (isRejected) {
-            badgeClass = 'badge-rejected';
-            badgeLabel = 'Rejected';
+    // Toggle Store Status (Open / Pause Orders)
+    const toggleStatusBtn = container.querySelector(
+      "#restaurant-toggle-status-btn",
+    );
+    if (toggleStatusBtn) {
+      toggleStatusBtn.addEventListener("click", () => {
+        const willBeOnline = !r.isOnline;
+        YUDUStore.setRestaurantOnline(willBeOnline);
+        if (willBeOnline) {
+          YUDUUI.showToast(
+            "Store is now OPEN and accepting orders.",
+            "success",
+          );
+        } else {
+          YUDUUI.showToast(
+            "Store orders PAUSED. Inflow temporarily stopped.",
+            "warning",
+          );
         }
+        renderRestaurant(container);
+      });
+    }
 
-        let s1Class = 'step-completed';
-        let s2Class = isPending ? 'step-pending' : (isUnderReview ? 'step-active' : 'step-completed');
-        let s3Class = isApproved ? 'step-completed' : (isRejected ? 'step-rejected' : 'step-waiting');
+    // Edit Hours button -> opens Business Hours Modal
+    const editHoursBtn = container.querySelector("#restaurant-edit-hours-btn");
+    if (editHoursBtn) {
+      editHoursBtn.addEventListener("click", () => {
+        YUDUUI.openBusinessHoursModal(() => {
+          renderRestaurant(container);
+        });
+      });
+    }
 
-        return `
+    // Render weekly chart
+    YUDUUI.renderWeeklyBarChart("overview-weekly-chart", {
+      height: 210,
+      days: 7,
+    });
+
+    // Chart range toggle (7 days / 30 days)
+    const rangeToggle = container.querySelector("#overview-chart-range-toggle");
+    if (rangeToggle) {
+      rangeToggle.addEventListener("click", (e) => {
+        const btn = e.target.closest(".chart-range-btn");
+        if (!btn) return;
+        const days = parseInt(btn.dataset.range, 10);
+        rangeToggle
+          .querySelectorAll(".chart-range-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const title = container.querySelector("#overview-chart-title");
+        if (title)
+          title.textContent =
+            days === 7 ? "Orders this week" : "Orders last 30 days";
+        YUDUUI.renderWeeklyBarChart("overview-weekly-chart", {
+          height: 210,
+          days,
+        });
+      });
+    }
+
+    // Dynamic Live-Sync for Application Status changes made by Admin Dashboard
+    function updateAppStatusSection() {
+      const mount = container.querySelector("#application-status-mount");
+      if (mount) {
+        mount.innerHTML = renderApplicationStatusSectionHtml();
+      }
+    }
+
+    window.addEventListener(
+      "yudu-application-status-changed",
+      updateAppStatusSection,
+    );
+
+    const appStorageHandler = (e) => {
+      if (
+        e.key === "yudu_admin_data_v2" ||
+        e.key === "yudu_admin_data" ||
+        e.key === "yudu_restaurant_application" ||
+        e.key === "yudu_application_status" ||
+        e.key === "yudu_partner_registration"
+      ) {
+        YUDUStore.syncApplicationStatusFromAdmin();
+        updateAppStatusSection();
+      }
+    };
+    window.addEventListener("storage", appStorageHandler);
+
+    try {
+      const appChannel = new BroadcastChannel("yudu_application_channel");
+      appChannel.onmessage = () => {
+        YUDUStore.syncApplicationStatusFromAdmin();
+        updateAppStatusSection();
+      };
+    } catch (e) {}
+  }
+
+  function renderApplicationStatusSectionHtml() {
+    const appData = YUDUStore.getApplicationData();
+    const status = appData.status || "Under Review";
+    const r = YUDUStore.getState().restaurant;
+
+    const isPending = status === "Pending";
+    const isUnderReview = status === "Under Review";
+    const isApproved = status === "Approved";
+    const isRejected = status === "Rejected";
+
+    let badgeClass = "badge-under-review";
+    let badgeLabel = "Under Review";
+
+    if (isApproved) {
+      badgeClass = "badge-approved";
+      badgeLabel = "Approved";
+    } else if (isPending) {
+      badgeClass = "badge-pending";
+      badgeLabel = "Pending";
+    } else if (isRejected) {
+      badgeClass = "badge-rejected";
+      badgeLabel = "Rejected";
+    }
+
+    let s1Class = "step-completed";
+    let s2Class = isPending
+      ? "step-pending"
+      : isUnderReview
+        ? "step-active"
+        : "step-completed";
+    let s3Class = isApproved
+      ? "step-completed"
+      : isRejected
+        ? "step-rejected"
+        : "step-waiting";
+
+    return `
             <section class="application-status-section" id="application-status-section">
                 <div class="app-status-card">
                     <!-- Top Header Row -->
@@ -363,7 +417,9 @@
                     </div>
 
                     <!-- Conditional Alert (ONLY when Under Review) -->
-                    ${isUnderReview ? `
+                    ${
+                      isUnderReview
+                        ? `
                         <div class="app-status-alert under-review-alert animate-fade-in" id="app-status-under-review-alert">
                             <div class="alert-icon-wrap">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -378,10 +434,14 @@
                                 </div>
                             </div>
                         </div>
-                    ` : ''}
+                    `
+                        : ""
+                    }
 
                     <!-- Informational callouts for other statuses -->
-                    ${isPending ? `
+                    ${
+                      isPending
+                        ? `
                         <div class="app-status-alert pending-alert animate-fade-in">
                             <div class="alert-icon-wrap">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -397,9 +457,13 @@
                                 </div>
                             </div>
                         </div>
-                    ` : ''}
+                    `
+                        : ""
+                    }
 
-                    ${isApproved ? `
+                    ${
+                      isApproved
+                        ? `
                         <div class="app-status-alert approved-alert animate-fade-in">
                             <div class="alert-icon-wrap">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -414,9 +478,13 @@
                                 </div>
                             </div>
                         </div>
-                    ` : ''}
+                    `
+                        : ""
+                    }
 
-                    ${isRejected ? `
+                    ${
+                      isRejected
+                        ? `
                         <div class="app-status-alert rejected-alert animate-fade-in">
                             <div class="alert-icon-wrap">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -432,13 +500,15 @@
                                 </div>
                             </div>
                         </div>
-                    ` : ''}
+                    `
+                        : ""
+                    }
 
                     <!-- Application Metadata Grid (Read-only) -->
                     <div class="app-status-details-grid">
                         <div class="app-status-detail-cell">
                             <span class="detail-label">APPLICATION ID</span>
-                            <span class="detail-value font-mono">${appData.id || 'APP-2041'}</span>
+                            <span class="detail-value font-mono">${appData.id || "APP-2041"}</span>
                         </div>
                         <div class="app-status-detail-cell">
                             <span class="detail-label">REGISTERED RESTAURANT</span>
@@ -446,13 +516,13 @@
                         </div>
                         <div class="app-status-detail-cell">
                             <span class="detail-label">SUBMISSION DATE</span>
-                            <span class="detail-value">${appData.submittedDate || '18 Nov 2026, 10:30 AM'}</span>
+                            <span class="detail-value">${appData.submittedDate || "18 Nov 2026, 10:30 AM"}</span>
                         </div>
                         <div class="app-status-detail-cell">
                             <span class="detail-label">ADMIN SYNC STATUS</span>
                             <span class="detail-value flex-align-center">
                                 <span class="live-sync-indicator-dot"></span>
-                                <span id="app-status-last-sync">${appData.lastUpdated || 'Auto-synced with Admin'}</span>
+                                <span id="app-status-last-sync">${appData.lastUpdated || "Auto-synced with Admin"}</span>
                             </span>
                         </div>
                     </div>
@@ -469,15 +539,21 @@
                             </div>
                         </div>
 
-                        <div class="progress-line ${s2Class === 'step-completed' || s2Class === 'step-active' ? 'line-active' : ''}"></div>
+                        <div class="progress-line ${s2Class === "step-completed" || s2Class === "step-active" ? "line-active" : ""}"></div>
 
                         <div class="progress-step ${s2Class}">
                             <div class="step-circle">
-                                ${s2Class === 'step-completed' ? `
+                                ${
+                                  s2Class === "step-completed"
+                                    ? `
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                ` : (isUnderReview ? `
+                                `
+                                    : isUnderReview
+                                      ? `
                                     <span class="step-pulse-dot"></span>
-                                ` : '2')}
+                                `
+                                      : "2"
+                                }
                             </div>
                             <div class="step-label-group">
                                 <div class="step-name">Under Review</div>
@@ -485,26 +561,32 @@
                             </div>
                         </div>
 
-                        <div class="progress-line ${s3Class === 'step-completed' ? 'line-active' : ''}"></div>
+                        <div class="progress-line ${s3Class === "step-completed" ? "line-active" : ""}"></div>
 
                         <div class="progress-step ${s3Class}">
                             <div class="step-circle">
-                                ${s3Class === 'step-completed' ? `
+                                ${
+                                  s3Class === "step-completed"
+                                    ? `
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                ` : (isRejected ? `
+                                `
+                                    : isRejected
+                                      ? `
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                ` : '3')}
+                                `
+                                      : "3"
+                                }
                             </div>
                             <div class="step-label-group">
-                                <div class="step-name">${isRejected ? 'Application Flagged' : 'Admin Approval'}</div>
-                                <div class="step-sub">${isApproved ? 'Partner Active' : (isRejected ? 'Action required' : 'Final decision')}</div>
+                                <div class="step-name">${isRejected ? "Application Flagged" : "Admin Approval"}</div>
+                                <div class="step-sub">${isApproved ? "Partner Active" : isRejected ? "Action required" : "Final decision"}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         `;
-    }
+  }
 
-    window.renderRestaurantPage = renderRestaurant;
+  window.renderRestaurantPage = renderRestaurant;
 })();

@@ -893,6 +893,44 @@ a {
   color: var(--primary-purple);
 }
 
+/* Chart range toggle (7 days / 30 days) */
+.chart-range-toggle {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f3e8ff;
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+  position: relative;
+  z-index: 3;
+  flex-shrink: 0;
+}
+
+.chart-range-btn {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--primary-purple);
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s;
+  line-height: 1.4;
+}
+
+.chart-range-btn.active {
+  background-color: #fff;
+  color: var(--primary-purple);
+  box-shadow: 0 1px 4px rgba(112, 40, 217, 0.13);
+}
+
+.chart-range-btn:not(.active):hover {
+  background-color: #ede9fe;
+}
+
 .badge-pill.count-badge {
   background-color: #ede9fe;
   color: var(--primary-purple);
@@ -1355,20 +1393,38 @@ a {
   border-radius: var(--radius-lg);
   padding: 20px;
   box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-section-card .section-header-row {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.chart-section-card .chart-container {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  margin-top: 4px;
 }
 
 .chart-container {
   position: relative;
   padding-top: 10px;
+  overflow: visible;
+  clear: both;
 }
 
 .weekly-bar-chart-flex {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  height: 170px;
+  height: 215px;
   padding-bottom: 24px;
   position: relative;
+  overflow: visible;
 }
 
 .chart-col {

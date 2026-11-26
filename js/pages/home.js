@@ -270,9 +270,11 @@
                 const acceptBtn = e.target.closest('[data-accept-id]');
                 if (acceptBtn) {
                     const orderId = acceptBtn.getAttribute('data-accept-id');
+                    /* COMMENTED OUT: Delivery partner popup on Accept
                     YUDUUI.openDeliveryPartnerModal(orderId, () => {
                         renderHome(container);
                     });
+                    */
                     return;
                 }
 
